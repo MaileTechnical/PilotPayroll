@@ -93,7 +93,13 @@ for each emp in employees
     end if;	
   end for;
 end for;
-send USER::DataSent( Ident:"payroll", Count:count );',
+send USER::DataSent( Ident:"payroll", Count:count );
+
+// experimental: notify transaction @TODO
+select one transaction  related by dept->ReviewTransaction[R38.''is reviewed by''];
+if ( not_empty transaction )
+  generate ReviewTransaction2:ReviewPayroll() to transaction;
+end if;',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',

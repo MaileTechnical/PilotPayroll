@@ -1,0 +1,92 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("418ecd74-4b26-4b9e-9eeb-7b6335d8c055",
+	'ReviewTransaction',
+	23,
+	'ReviewTransaction',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("e9d2bdfc-68db-4228-9359-f8f57486d45a",
+	"418ecd74-4b26-4b9e-9eeb-7b6335d8c055",
+	'Create',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'create object instance transaction of ReviewTransaction;
+select any user from instances of User
+ where ( selected.ID == param.UserID );
+if ( not_empty user )
+  relate user to transaction across R36.''runs'';
+end if;
+select any dept from instances of Department
+ where ( selected.Name == param.Department );
+if ( not_empty dept )
+  relate dept to transaction across R38.''is reviewed by'';
+end if;
+generate ReviewTransaction1:ValidateUser() to transaction;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("d5e03c4e-bad9-4ee5-9d28-94708bd86f22",
+	"e9d2bdfc-68db-4228-9359-f8f57486d45a",
+	'Department',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("f5bcf6d3-b366-4b16-9cb0-7697edb311c4",
+	"e9d2bdfc-68db-4228-9359-f8f57486d45a",
+	'UserID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"d5e03c4e-bad9-4ee5-9d28-94708bd86f22",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("5ac76009-41c5-4e17-8204-ef255e678ba7",
+	"418ecd74-4b26-4b9e-9eeb-7b6335d8c055");
+INSERT INTO O_BATTR
+	VALUES ("5ac76009-41c5-4e17-8204-ef255e678ba7",
+	"418ecd74-4b26-4b9e-9eeb-7b6335d8c055");
+INSERT INTO O_ATTR
+	VALUES ("5ac76009-41c5-4e17-8204-ef255e678ba7",
+	"418ecd74-4b26-4b9e-9eeb-7b6335d8c055",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"418ecd74-4b26-4b9e-9eeb-7b6335d8c055");
+INSERT INTO O_ID
+	VALUES (1,
+	"418ecd74-4b26-4b9e-9eeb-7b6335d8c055");
+INSERT INTO O_ID
+	VALUES (2,
+	"418ecd74-4b26-4b9e-9eeb-7b6335d8c055");
+INSERT INTO PE_PE
+	VALUES ("418ecd74-4b26-4b9e-9eeb-7b6335d8c055",
+	1,
+	"66af3a6e-b969-4d52-8331-503fed93597c",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("66af3a6e-b969-4d52-8331-503fed93597c",
+	"00000000-0000-0000-0000-000000000000",
+	"5713191d-1d3c-41cb-add1-1cce3729acf2",
+	'PayrollMgmt',
+	'',
+	0,
+	'../PayrollMgmt.xtuml');

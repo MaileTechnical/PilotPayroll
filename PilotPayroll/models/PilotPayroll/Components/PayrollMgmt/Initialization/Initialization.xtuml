@@ -151,6 +151,16 @@ select any payspec from instances of PaymentElementSpec where selected.Label == 
 relate struct to payspec across R12.''is typed by'';
 struct.EffectiveDate = now + TimeUtilities::DayHourToSeconds(Days:3, Hours:0 );
 struct.NominalValue = 10;
+
+
+create object instance user of User;
+user.ID = 999;
+create object instance right of AccessPrivilege;
+right.resourceType = "DepartmentAccess";
+relate right to user across R37.''is granted to'';
+create object instance right of AccessPrivilege;
+right.resourceType = "ReviewAndApprove";
+relate right to user across R37.''is granted to'';
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,

@@ -465,7 +465,9 @@ INSERT INTO SPR_PS
 	'Request from client to get department payroll data for review.
 Some reviewers request only those items with on-hold status.
 ',
-	'::MarshalPayroll( Dept:param.Department, Holds:False );',
+	'// experimental - run this via transaction with access management @TODO
+ReviewTransaction::Create( Department:param.Department, UserID:999 );
+//::MarshalPayroll( Dept:param.Department, Holds:False ); @TODO',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -506,8 +508,8 @@ INSERT INTO SPR_PEP
 INSERT INTO SPR_PS
 	VALUES ("2d2951f1-f7bf-4ff2-91bf-5d9b221a1528",
 	'SubmitItemApproval',
-	'Approve a payment element amount for an employee on a department payroll.
-Not used for preliminary Use Cases.
+	'Approve a payment element for an employee on a department payroll.
+Preliminary Use Cases only approve hold status.
 ',
 	'::UnmarshallItemApproval( Dept:param.Department, ID:param.EmployeeID, Label:param.PaymentLabel );',
 	1,
@@ -517,8 +519,8 @@ INSERT INTO C_EP_PROXY
 	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
 	-1,
 	'SubmitItemApproval',
-	'Approve a payment element amount for an employee on a department payroll.
-Not used for preliminary Use Cases.
+	'Approve a payment element for an employee on a department payroll.
+Preliminary Use Cases only approve hold status.
 ',
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
