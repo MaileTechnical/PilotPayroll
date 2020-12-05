@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'AccessType',
 	26,
 	'AccessType',
-	'',
+	'An instance specifies the degree of access a user has to an identifiable data item.
+For an instance of this class, any combination of the defined access modes may be configured.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("fb682bfb-d8ff-454c-92ab-5381a3815075",
@@ -18,7 +19,7 @@ INSERT INTO O_ATTR
 	"b1502e61-2236-403f-b342-ad4d78514a43",
 	"00000000-0000-0000-0000-000000000000",
 	'View',
-	'',
+	'A user has ''read-access'' to any instance of the class defined by the associated data resource.',
 	'',
 	'View',
 	0,
@@ -36,7 +37,7 @@ INSERT INTO O_ATTR
 	"b1502e61-2236-403f-b342-ad4d78514a43",
 	"fb682bfb-d8ff-454c-92ab-5381a3815075",
 	'Edit',
-	'',
+	'A user may modify the value of any instance of the class defined by the associated data resource.',
 	'',
 	'Edit',
 	0,
@@ -54,7 +55,7 @@ INSERT INTO O_ATTR
 	"b1502e61-2236-403f-b342-ad4d78514a43",
 	"f975e6d3-f426-4364-9633-ec5219f6b9f8",
 	'Hold',
-	'',
+	'If applicable, a user may modify the on-hold status of an instance of the class defined by the associated data instance.',
 	'',
 	'Hold',
 	0,

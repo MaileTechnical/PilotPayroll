@@ -5,7 +5,7 @@ INSERT INTO O_OBJ
 	'User',
 	23,
 	'User',
-	'',
+	'An actor who has defined access privileges to actions and data which may limit or permit execution of use cases.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("9a412599-baf5-4e3b-bcec-98e99aeba4ee",
@@ -28,6 +28,11 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"7540b5a1-0cac-451d-9443-3b8489340bfc");
+INSERT INTO O_OIDA
+	VALUES ("9a412599-baf5-4e3b-bcec-98e99aeba4ee",
+	"7540b5a1-0cac-451d-9443-3b8489340bfc",
+	0,
+	'ID');
 INSERT INTO O_ID
 	VALUES (1,
 	"7540b5a1-0cac-451d-9443-3b8489340bfc");

@@ -466,7 +466,7 @@ INSERT INTO SPR_PS
 Some reviewers request only those items with on-hold status.
 ',
 	'select any user from instances of User;
-select any action related by user->ActionResource[R36.''can execute'']
+select any action related by user->Action[R36.''can execute'']
  where ( selected.Name == "RetrievePayrollForReview" );
 if ( not_empty action )
   LOG::LogInfo( message:"Permission granted for action RetrievePayrollForReview" );
@@ -540,14 +540,14 @@ INSERT INTO SPR_PS
 
 ',
 	'select any user from instances of User;
-select any action related by user->ActionResource[R36.''can execute'']
+select any action related by user->Action[R36.''can execute'']
  where ( selected.Name == "SubmitItemHold" );
 if ( not_empty action )
   access = false;
-  select any data related by user->DataResource[R37.''can access'']
+  select any data related by user->Data[R37.''can access'']
    where ( selected.TypeName == "elementSpec" ) and ( selected.Instance == param.PaymentLabel );
   if ( not_empty data )
-    select any right related by user->DataResource[R37.''can access'']->AccessType[R37];
+    select any right related by user->Data[R37.''can access'']->AccessType[R37];
     if ( right.Hold )
       access = true;
       ::UnmarshallitemHold( Dept:param.Department, ID:param.EmployeeID, Label:param.PaymentLabel, Hold:param.HoldStatus );
@@ -659,7 +659,7 @@ INSERT INTO SPR_PS
 	'SubmitPayrollApproval',
 	'Signal that the payroll for a department has been approved by a client user.',
 	'select any user from instances of User;
-select any action related by user->ActionResource[R36.''can execute'']
+select any action related by user->Action[R36.''can execute'']
  where ( selected.Name == "SubmitPayrollApproval" );
 if ( not_empty action )
   LOG::LogInfo( message:"Permission granted for action SubmitPayrollApproval" );

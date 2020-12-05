@@ -154,24 +154,24 @@ struct.NominalValue = 10;
 
 // Initialize access rights
 // Actions:
-create object instance payrollReview of ActionResource;
+create object instance payrollReview of Action;
 payrollReview.Name = "RetrievePayrollForReview";
 
-create object instance approveAll of ActionResource;
+create object instance approveAll of Action;
 approveAll.Name = "SubmitPayrollApproval";
 
-create object instance submitHold of ActionResource;
+create object instance submitHold of Action;
 submitHold.Name = "SubmitItemHold";
 
-create object instance submitUpdate of ActionResource;
+create object instance submitUpdate of Action;
 submitUpdate.Name = "SubmitItemUpdate";
 
 // Data access
-create object instance travel of DataResource;
+create object instance travel of Data;
 travel.TypeName = "elementSpec";
 travel.Instance = "Travel allowance";
 
-create object instance department of DataResource;
+create object instance department of Data;
 department.TypeName = "department";
 department.Instance = "IT";
 
@@ -191,7 +191,7 @@ relate manager to payrollReview across R36.''can execute'';
 create object instance rights of AccessType;
 rights.View = true;
 rights.Approve = true;
-relate manager to department across R37.''can access'' using rights;
+relate manager to department across R37.''can access'' using rights;  // manager can approve only IT dept. payroll.
 
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
