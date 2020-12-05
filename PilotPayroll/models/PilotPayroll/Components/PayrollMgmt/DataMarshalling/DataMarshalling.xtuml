@@ -142,6 +142,7 @@ end if;
 select any employee from instances of Employee
  where ( selected.NationalID == param.ID );
 if ( not_empty employee )
+    LOG::LogInfo( message:"Updating hold status for payment type " + param.Label ); // @TODO - debug
   	select one payroll related by employee->EmployeePayment[R7]
   	                                      ->Payroll[R7.''is on''];
   	select many elements related by employee->EmployeePayment[R7]
@@ -309,6 +310,63 @@ INSERT INTO S_SPARM
 	'');
 INSERT INTO PE_PE
 	VALUES ("8cea7871-a98d-4740-ae4a-2f81be632c39",
+	1,
+	"42385522-1c5f-4df9-9de6-3cd5ff2b1211",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("340eb677-cd98-48f8-ab87-a521391d6159",
+	"00000000-0000-0000-0000-000000000000",
+	'MarshallEmployee',
+	'',
+	'// Send employee anbd payments data for a single employee.
+select any employee from instances of Employee
+ where ( selected.NationalID == param.ID );
+if ( not_empty employee )
+	select one dept related by employee->Department[R6.''is assigned to''];
+    send USER::PayeeData( Department:dept.Name, 
+                          EmployeeID:employee.NationalID, 
+                          EmployeeFirstName:employee.FirstName, EmployeeLastName:employee.LastName );
+  	select one payroll related by employee->EmployeePayment[R7]
+  	                                      ->Payroll[R7.''is on''];
+  	select many elements related by employee->EmployeePayment[R7]
+  	                                        ->EmployeePaymentElement[R15.''is composed of''];
+    for each elmt in elements
+	hold = False;
+    unapproved = False;
+	select one payroll related by elmt->Payroll[R29.''is on hold for''];
+	if ( not_empty payroll )
+	  hold = True;
+	end if;  	
+	select one payroll related by elmt->Payroll[R35.''needs approval for''];
+	if ( not_empty payroll )
+	  unapproved = True;
+	end if;  	
+      select one spec related by elmt->PaymentStructureElement[R13.''is current realization of'']
+                                    ->PaymentElementSpec[R12.''is typed by''];
+      send USER::PayrollData( EmployeeID:employee.NationalID,
+                              PaymentLabel:spec.Label, 
+                              PaymentAmount:elmt.Amount, 
+                              HoldStatus:hold, UnapprovalStatus: unapproved  );
+  end for;
+  send USER::DataSent( Ident:"payroll", Count:1 );
+end if;
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("605f0267-6993-4166-9483-c3a8da1beec1",
+	"340eb677-cd98-48f8-ab87-a521391d6159",
+	'ID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO PE_PE
+	VALUES ("340eb677-cd98-48f8-ab87-a521391d6159",
 	1,
 	"42385522-1c5f-4df9-9de6-3cd5ff2b1211",
 	"00000000-0000-0000-0000-000000000000",

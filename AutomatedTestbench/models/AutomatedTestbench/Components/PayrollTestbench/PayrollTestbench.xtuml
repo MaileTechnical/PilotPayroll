@@ -1113,7 +1113,18 @@ INSERT INTO SPR_RS
 else
   LOG::LogFailure( message:"Test case " + param.caseLabel + " failed." );
 end if;
-LOG::LogInfo( message:" ------------------------------ ");',
+LOG::LogInfo( message:" ------------------------------ ");
+select many payees from instances of Payee;
+for each payee in payees
+  select many elements related by payee->PayrollElement[R9.''aggregates''];
+  for each element in elements
+    unrelate element from payee across R9.''contributes to'';
+    delete object instance element;
+  end for;
+  select one dept related by payee->Department[R8.''belongs to''];
+  unrelate payee from dept across R8.''belongs to'';
+  delete object instance payee;
+end for;',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1132,7 +1143,7 @@ INSERT INTO SPR_RS
 	'ObservationIncomplete',
 	'Allow this obbservation to be invoked again, attempting completion.',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5c356dfd-5197-46e8-8f38-d8d4f740788a",
@@ -1150,7 +1161,7 @@ INSERT INTO SPR_RS
 	'AddImmediateObservation',
 	'Add an observation which will evaluate as soon as it becomes eligible following a stimulus.',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("082333f2-efc5-427f-b3e7-f2c296eb4bed",
@@ -1168,7 +1179,7 @@ INSERT INTO SPR_RS
 	'AddTriggeredObservation',
 	'Add an observation which will only evaluate in response to signalled trigger occurrence.',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("09c40bff-dfaf-4ccb-be7c-87e520743fcf",
@@ -1186,7 +1197,7 @@ INSERT INTO SPR_RS
 	'MigrateTriggeredObservation',
 	'Change an existing triggered observation to a polling immediate observation.',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("18966c4a-2804-4b67-8933-5275d471cb7c",

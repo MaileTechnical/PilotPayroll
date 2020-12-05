@@ -465,7 +465,15 @@ INSERT INTO SPR_PS
 	'Request from client to get department payroll data for review.
 Some reviewers request only those items with on-hold status.
 ',
-	'::MarshalPayroll( Dept:param.Department, Holds:False );',
+	'select any user from instances of User;
+select any action related by user->ActionResource[R36.''can execute'']
+ where ( selected.Name == "RetrievePayrollForReview" );
+if ( not_empty action )
+  LOG::LogInfo( message:"Permission granted for action RetrievePayrollForReview" );
+  ::MarshalPayroll( Dept:param.Department, Holds:param.HoldsOnly );
+else
+  LOG::LogInfo( message:"Insufficent privilege for action " + "RetrievePayrollForReview" );
+end if;',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -506,8 +514,8 @@ INSERT INTO SPR_PEP
 INSERT INTO SPR_PS
 	VALUES ("2d2951f1-f7bf-4ff2-91bf-5d9b221a1528",
 	'SubmitItemApproval',
-	'Approve a payment element amount for an employee on a department payroll.
-Not used for preliminary Use Cases.
+	'Approve a payment element for an employee on a department payroll.
+Preliminary Use Cases only approve hold status.
 ',
 	'::UnmarshallItemApproval( Dept:param.Department, ID:param.EmployeeID, Label:param.PaymentLabel );',
 	1,
@@ -517,8 +525,8 @@ INSERT INTO C_EP_PROXY
 	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
 	-1,
 	'SubmitItemApproval',
-	'Approve a payment element amount for an employee on a department payroll.
-Not used for preliminary Use Cases.
+	'Approve a payment element for an employee on a department payroll.
+Preliminary Use Cases only approve hold status.
 ',
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
@@ -531,8 +539,26 @@ INSERT INTO SPR_PS
 	'Update the on-hold status of a payment element for an employee on a department payroll.
 
 ',
-	'::UnmarshallitemHold( Dept:param.Department, ID:param.EmployeeID, Label:param.PaymentLabel, Hold:param.HoldStatus );
-',
+	'select any user from instances of User;
+select any action related by user->ActionResource[R36.''can execute'']
+ where ( selected.Name == "SubmitItemHold" );
+if ( not_empty action )
+  access = false;
+  select any data related by user->DataResource[R37.''can access'']
+   where ( selected.TypeName == "elementSpec" ) and ( selected.Instance == param.PaymentLabel );
+  if ( not_empty data )
+    select any right related by user->DataResource[R37.''can access'']->AccessType[R37];
+    if ( right.Hold )
+      access = true;
+      ::UnmarshallitemHold( Dept:param.Department, ID:param.EmployeeID, Label:param.PaymentLabel, Hold:param.HoldStatus );
+    end if;
+  end if;
+  if ( not access )
+    LOG::LogInfo( message:"Insufficent access privilege for hold status update for " + param.PaymentLabel );
+  end if;
+else
+  LOG::LogInfo( message:"Insufficent privilege for action " + "SubmitItemHold" );
+end if;',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -632,15 +658,27 @@ INSERT INTO SPR_PS
 	VALUES ("8be019a9-e027-42fd-810b-bd39356e51a2",
 	'SubmitPayrollApproval',
 	'Signal that the payroll for a department has been approved by a client user.',
-	'select any dept from instances of Department
- where ( selected.Name == param.Department );
-select one payroll related by dept->Payroll[R34.''has under review''];
-if ( empty payroll )
-  LOG::LogFailure( message:"Department not matched for payroll approval" );
-  return;
-end if;
-payroll.AssessForApproval();
-',
+	'select any user from instances of User;
+select any action related by user->ActionResource[R36.''can execute'']
+ where ( selected.Name == "SubmitPayrollApproval" );
+if ( not_empty action )
+  LOG::LogInfo( message:"Permission granted for action SubmitPayrollApproval" );
+  approve = false;
+  select any dept from instances of Department
+   where ( selected.Name == param.Department );
+  if ( not_empty dept )
+    select one payroll related by dept->Payroll[R34.''has under review''];
+    if ( not_empty payroll )
+      approve = true;
+      payroll.AssessForApproval();
+    end if;
+  end if;
+  if ( not approve )
+    LOG::LogFailure( message:"Department not matched for payroll approval" );
+  end if;
+else
+  LOG::LogInfo( message:"Insufficent privilege for action " + "SubmitPayrollApproval" );
+end if;',
 	1,
 	0);
 INSERT INTO C_EP_PROXY

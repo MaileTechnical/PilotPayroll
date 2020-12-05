@@ -1,0 +1,50 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("48a0dd1e-a04f-46d0-bd62-9947ff8bc5df",
+	'ActionResource',
+	24,
+	'ActionResource',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("0ce8d243-4cd5-4439-9a3d-ea0722867f00",
+	"48a0dd1e-a04f-46d0-bd62-9947ff8bc5df");
+INSERT INTO O_BATTR
+	VALUES ("0ce8d243-4cd5-4439-9a3d-ea0722867f00",
+	"48a0dd1e-a04f-46d0-bd62-9947ff8bc5df");
+INSERT INTO O_ATTR
+	VALUES ("0ce8d243-4cd5-4439-9a3d-ea0722867f00",
+	"48a0dd1e-a04f-46d0-bd62-9947ff8bc5df",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"48a0dd1e-a04f-46d0-bd62-9947ff8bc5df");
+INSERT INTO O_ID
+	VALUES (1,
+	"48a0dd1e-a04f-46d0-bd62-9947ff8bc5df");
+INSERT INTO O_ID
+	VALUES (2,
+	"48a0dd1e-a04f-46d0-bd62-9947ff8bc5df");
+INSERT INTO PE_PE
+	VALUES ("48a0dd1e-a04f-46d0-bd62-9947ff8bc5df",
+	1,
+	"66af3a6e-b969-4d52-8331-503fed93597c",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("66af3a6e-b969-4d52-8331-503fed93597c",
+	"00000000-0000-0000-0000-000000000000",
+	"5713191d-1d3c-41cb-add1-1cce3729acf2",
+	'PayrollMgmt',
+	'',
+	0,
+	'../PayrollMgmt.xtuml');

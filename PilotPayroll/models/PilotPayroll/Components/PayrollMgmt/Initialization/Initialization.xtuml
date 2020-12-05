@@ -151,6 +151,48 @@ select any payspec from instances of PaymentElementSpec where selected.Label == 
 relate struct to payspec across R12.''is typed by'';
 struct.EffectiveDate = now + TimeUtilities::DayHourToSeconds(Days:3, Hours:0 );
 struct.NominalValue = 10;
+
+// Initialize access rights
+// Actions:
+create object instance payrollReview of ActionResource;
+payrollReview.Name = "RetrievePayrollForReview";
+
+create object instance approveAll of ActionResource;
+approveAll.Name = "SubmitPayrollApproval";
+
+create object instance submitHold of ActionResource;
+submitHold.Name = "SubmitItemHold";
+
+create object instance submitUpdate of ActionResource;
+submitUpdate.Name = "SubmitItemUpdate";
+
+// Data access
+create object instance travel of DataResource;
+travel.TypeName = "elementSpec";
+travel.Instance = "Travel allowance";
+
+create object instance department of DataResource;
+department.TypeName = "department";
+department.Instance = "IT";
+
+/*
+create object instance clerk of User;
+relate clerk to payrollReview across R36.''can execute'';
+relate clerk to submitHold across R36.''can execute'';
+create object instance rights of AccessType;
+rights.Hold = true;
+rights.Approve = true;
+relate clerk to travel across R37.''can access'' using rights;  // clerk can hold/clear travel allowance
+*/
+
+Create object instance manager of User;
+relate manager to approveAll across R36.''can execute'';
+relate manager to payrollReview across R36.''can execute'';
+create object instance rights of AccessType;
+rights.View = true;
+rights.Approve = true;
+relate manager to department across R37.''can access'' using rights;
+
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
