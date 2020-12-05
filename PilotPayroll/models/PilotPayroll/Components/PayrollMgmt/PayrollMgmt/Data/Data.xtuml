@@ -5,8 +5,8 @@ INSERT INTO O_OBJ
 	'Data',
 	25,
 	'Data',
-	'Each instance identifies some class in the application domain to which some mode of access may be granted.
-If a user has an association to such an instance, then qualified access to the application class is granted.',
+	'Each instance represents an instance of a class in the application domain.
+',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("ac12a3d2-81f7-4929-88d1-78fa54b59eca",
@@ -19,7 +19,7 @@ INSERT INTO O_ATTR
 	"58afec23-81d9-44df-a286-f38959c55b27",
 	"00000000-0000-0000-0000-000000000000",
 	'TypeName',
-	'',
+	'Class name for the data of interest.',
 	'',
 	'TypeName',
 	0,
@@ -37,7 +37,7 @@ INSERT INTO O_ATTR
 	"58afec23-81d9-44df-a286-f38959c55b27",
 	"ac12a3d2-81f7-4929-88d1-78fa54b59eca",
 	'Instance',
-	'',
+	'Identifier for the instance of interest.',
 	'',
 	'Instance',
 	0,

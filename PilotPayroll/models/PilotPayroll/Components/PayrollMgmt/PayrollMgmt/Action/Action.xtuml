@@ -5,8 +5,9 @@ INSERT INTO O_OBJ
 	'Action',
 	24,
 	'Action',
-	'Each instance is a match, by name, to an interface port activity.
-If a user has an association to such an instance, then privilege to execute the activity is granted.',
+	'Represents an action that can be performed by the system.
+For example, a port-message activity.
+',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("0ce8d243-4cd5-4439-9a3d-ea0722867f00",
@@ -19,7 +20,9 @@ INSERT INTO O_ATTR
 	"48a0dd1e-a04f-46d0-bd62-9947ff8bc5df",
 	"00000000-0000-0000-0000-000000000000",
 	'Name',
-	'',
+	'Indicates the name of the action.
+For example, the name of a port message.
+',
 	'',
 	'Name',
 	0,

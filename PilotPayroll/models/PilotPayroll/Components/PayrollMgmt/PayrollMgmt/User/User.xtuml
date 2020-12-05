@@ -5,7 +5,7 @@ INSERT INTO O_OBJ
 	'User',
 	23,
 	'User',
-	'An actor who has defined access privileges to actions and data which may limit or permit execution of use cases.',
+	'Represents a user of the system.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("9a412599-baf5-4e3b-bcec-98e99aeba4ee",
