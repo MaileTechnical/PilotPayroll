@@ -1,2 +1,3 @@
 *,RootPackage,*,PayrollDeployment::PayrollDeployment
 Components::PayrollMgmt,InitFunction,Component,CreatePEIs
+*,MsgClasses,Port,HRuserPayroll

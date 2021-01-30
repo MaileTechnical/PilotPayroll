@@ -11,8 +11,9 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   <modules>
-    <module>AutomatedTestbench</module>
+    <module>PayrollDeployment</module>
     <module>PilotPayroll</module>
-    <module>../TestFramework/TestFramework</module>
+    <module>HRuser</module>
+    <module>TestControl</module>
   </modules>
 </project>
