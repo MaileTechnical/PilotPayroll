@@ -28,6 +28,7 @@ end if;
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("7088d4ea-cb0d-49a4-a24d-4fbb722db569",
@@ -61,6 +62,7 @@ INSERT INTO O_TFR
 	1,
 	'',
 	"c55169f8-82cc-49a5-bed0-b96352cfbf55",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("9647dfcb-87a5-4f66-9f2b-5958053387bd",
@@ -76,6 +78,7 @@ generate DateTimeMonitor2:Kill() to self;',
 	1,
 	'',
 	"64786acb-d197-405a-8a9f-aa9536c0dd2a",
+	0,
 	0);
 INSERT INTO O_NBATTR
 	VALUES ("8648b1e7-7e62-453f-96fa-cfe904ff6430",
@@ -186,7 +189,7 @@ INSERT INTO EP_PKG_PROXY
 	VALUES ("32424a52-1b34-46a9-9852-2e7dd55f4cce",
 	"00000000-0000-0000-0000-000000000000",
 	"5713191d-1d3c-41cb-add1-1cce3729acf2",
-	'Utilities',
+	'DateTimeUtility',
 	'',
 	0,
-	'../Utilities.xtuml');
+	'../DateTimeUtility.xtuml');

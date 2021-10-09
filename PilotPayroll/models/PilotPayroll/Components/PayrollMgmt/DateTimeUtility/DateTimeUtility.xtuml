@@ -4,7 +4,7 @@ INSERT INTO EP_PKG
 	VALUES ("32424a52-1b34-46a9-9852-2e7dd55f4cce",
 	"00000000-0000-0000-0000-000000000000",
 	"5713191d-1d3c-41cb-add1-1cce3729acf2",
-	'Utilities',
+	'DateTimeUtility',
 	'',
 	0);
 INSERT INTO GD_MD
@@ -25,14 +25,14 @@ INSERT INTO GD_MD
 	0,
 	0,
 	'4.1.17',
-	'PilotPayroll::Components::PayrollMgmt::Utilities');
+	'PilotPayroll::Components::PayrollMgmt::DateTimeUtility');
 INSERT INTO GD_GE
 	VALUES ("63c2e44b-c105-49ce-b236-f2722f8c4b48",
 	"272094d3-1bb4-4f25-a2e6-3c58a5307bfb",
 	"5208dd6e-09ad-4170-a392-7ae90f1d9176",
 	21,
 	0,
-	'PilotPayroll::Components::PayrollMgmt::Utilities::DateTimeMonitor');
+	'PilotPayroll::Components::PayrollMgmt::DateTimeUtility::DateTimeMonitor');
 INSERT INTO GD_SHP
 	VALUES ("63c2e44b-c105-49ce-b236-f2722f8c4b48");
 INSERT INTO GD_NCS
@@ -117,6 +117,7 @@ INSERT INTO C_C_PROXY
 	0,
 	"00000000-0000-0000-0000-000000000000",
 	0,
+	'',
 	'',
 	'../PayrollMgmt.xtuml');
 INSERT INTO S_SYS_PROXY

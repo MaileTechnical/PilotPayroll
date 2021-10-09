@@ -1,2 +1,3 @@
 *,RootPackage,*,AutomatedTestbench::SimulationConfiguration
 Components::PayrollTestbench,InitFunction,Component,RunNominalCases
+*,MsgClasses,Port,HRuserPayroll
