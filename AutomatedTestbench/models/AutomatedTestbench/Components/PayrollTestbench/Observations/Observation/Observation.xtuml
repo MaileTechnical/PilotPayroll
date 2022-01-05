@@ -43,6 +43,7 @@ Note:
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("7181c324-0eb1-4bf8-95b0-997731baa239",
@@ -104,6 +105,7 @@ end if;',
 	1,
 	'',
 	"e508367e-0058-4880-a691-9c57cb218b25",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("83ee5979-1852-4f72-a9e4-a623e225cc97",
@@ -116,6 +118,7 @@ INSERT INTO O_TFR
 	1,
 	'',
 	"5f67a4e6-856d-440d-a9ff-c105c1b5b7ae",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("52fbb4d3-3cbe-40ee-852e-96e856a950ba",
@@ -143,6 +146,7 @@ Any observation failure terminates the entire test case.',
 	1,
 	'',
 	"533efdeb-9b9c-4238-84f7-aa651a4c1fab",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("92763265-6a9c-4542-a098-feef7d22f660",
@@ -192,6 +196,7 @@ INSERT INTO O_TFR
 	1,
 	'',
 	"83ee5979-1852-4f72-a9e4-a623e225cc97",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("ac9d73ba-ebbb-44f2-8224-5971380bc13a",
@@ -230,6 +235,7 @@ delete object instance self;',
 	1,
 	'',
 	"172cbced-663d-4548-8eff-4204e1d50160",
+	0,
 	0);
 INSERT INTO O_NBATTR
 	VALUES ("7d34485b-5d71-4f32-bb88-8f81634ec1e7",

@@ -25,6 +25,7 @@ INSERT INTO O_TFR
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("b8a018a9-1941-4017-b064-f80299d98d3e",
@@ -40,6 +41,7 @@ delete object instance self;',
 	1,
 	'',
 	"944300c6-8cc5-4b77-9bcc-1f0947178aa0",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("37b3e0af-bc21-4abd-8f4f-4a13a789ffec",
@@ -52,6 +54,7 @@ INSERT INTO O_TFR
 	1,
 	'',
 	"b8a018a9-1941-4017-b064-f80299d98d3e",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("7a32a961-6d9b-4be5-9535-40684b1e6cf3",
@@ -65,6 +68,7 @@ nominal.CreateBucketTests();',
 	1,
 	'',
 	"37b3e0af-bc21-4abd-8f4f-4a13a789ffec",
+	0,
 	0);
 INSERT INTO O_NBATTR
 	VALUES ("679269d5-317e-4a03-ad79-c63f252a60cf",

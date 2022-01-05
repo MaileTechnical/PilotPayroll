@@ -166,7 +166,7 @@ INSERT INTO GD_GE
 	"3292a579-0515-41b4-b314-8ead46e6b1b1",
 	94,
 	0,
-	'PilotPayroll::Components::PayrollMgmt::Port1::Unnamed Interface');
+	'PilotPayroll::Components::PayrollMgmt::TEST::TestSupport');
 INSERT INTO GD_CON
 	VALUES ("1a0be350-bd38-4027-b3e9-c15142cb4750",
 	"00000000-0000-0000-0000-000000000000");

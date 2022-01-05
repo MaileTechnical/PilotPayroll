@@ -37,6 +37,7 @@ end for;	',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("2c9eb5ac-e7ea-4426-b9e6-013bcb269166",
@@ -55,6 +56,7 @@ end for;',
 	1,
 	'',
 	"0f2a1433-a284-4395-80ef-dc84cf8a27e3",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("e96b22b1-1d1b-4f8b-b903-28e6cf7b8860",
@@ -76,6 +78,7 @@ end if;',
 	1,
 	'',
 	"2c9eb5ac-e7ea-4426-b9e6-013bcb269166",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("f0138969-611f-456f-8810-ac882a357505",
@@ -97,6 +100,7 @@ generate Payroll6:Submit() to self;
 	1,
 	'',
 	"e96b22b1-1d1b-4f8b-b903-28e6cf7b8860",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("7046a9ff-d151-4c4d-9c54-a7cb829f8b9f",
@@ -128,6 +132,7 @@ end if;
 	1,
 	'',
 	"f0138969-611f-456f-8810-ac882a357505",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("3ac940ca-f4ab-4fd1-9c69-0f3cadae9e26",
@@ -185,6 +190,7 @@ end if;
 	1,
 	'',
 	"7046a9ff-d151-4c4d-9c54-a7cb829f8b9f",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("789d43c9-fca7-4fd1-9fe1-05dd8c059156",
@@ -247,6 +253,7 @@ end if;',
 	1,
 	'',
 	"13169ada-0f02-4c17-929e-36f0e770dac9",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("40cfecea-e7b3-4045-8c39-e0f81363ade1",

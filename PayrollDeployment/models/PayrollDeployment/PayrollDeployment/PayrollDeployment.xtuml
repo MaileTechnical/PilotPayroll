@@ -468,6 +468,7 @@ INSERT INTO C_PO_PROXY
 	'USER',
 	0,
 	0,
+	'',
 	'../../../../PilotPayroll/models/PilotPayroll/Components/PayrollMgmt/PayrollMgmt.xtuml');
 INSERT INTO CL_POR
 	VALUES ("49b38bd8-7693-4d9e-9033-d8df7f54645c",
@@ -497,6 +498,7 @@ INSERT INTO C_PO_PROXY
 	'TEST',
 	0,
 	0,
+	'',
 	'../../../../PilotPayroll/models/PilotPayroll/Components/PayrollMgmt/PayrollMgmt.xtuml');
 INSERT INTO PE_PE
 	VALUES ("49b38bd8-7693-4d9e-9033-d8df7f54645c",
@@ -513,6 +515,7 @@ INSERT INTO C_C_PROXY
 	0,
 	"00000000-0000-0000-0000-000000000000",
 	0,
+	'',
 	'',
 	'../../../../PilotPayroll/models/PilotPayroll/Components/PayrollMgmt/PayrollMgmt.xtuml');
 INSERT INTO CL_IC
@@ -553,6 +556,7 @@ INSERT INTO C_PO_PROXY
 	'Payroll',
 	0,
 	0,
+	'',
 	'../../../../HRuser/models/HRuser/Components/HRuser/HRuser.xtuml');
 INSERT INTO PE_PE
 	VALUES ("3496e8c5-baf6-4d57-b539-127140d4a0a8",
@@ -569,6 +573,7 @@ INSERT INTO C_C_PROXY
 	0,
 	"00000000-0000-0000-0000-000000000000",
 	0,
+	'',
 	'',
 	'../../../../HRuser/models/HRuser/Components/HRuser/HRuser.xtuml');
 INSERT INTO CL_IC
@@ -595,6 +600,7 @@ INSERT INTO C_C_PROXY
 	0,
 	"00000000-0000-0000-0000-000000000000",
 	0,
+	'',
 	'',
 	'../../../../TestControl/models/TestControl/Components/TestControl/TestControl.xtuml');
 INSERT INTO C_SF

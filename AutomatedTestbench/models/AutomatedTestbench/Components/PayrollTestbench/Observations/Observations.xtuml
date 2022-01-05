@@ -801,6 +801,7 @@ delete object instance delay; ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
+	0,
 	0);
 INSERT INTO S_SPARM
 	VALUES ("9fb7e215-e096-46c7-bdf8-7323789b1932",
@@ -841,6 +842,7 @@ INSERT INTO C_C_PROXY
 	0,
 	"00000000-0000-0000-0000-000000000000",
 	0,
+	'',
 	'',
 	'../PayrollTestbench.xtuml');
 INSERT INTO S_SYS_PROXY

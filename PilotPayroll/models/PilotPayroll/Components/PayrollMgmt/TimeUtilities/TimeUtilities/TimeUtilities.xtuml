@@ -41,6 +41,7 @@ return current_time;',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("fdcbbfad-7618-4c07-a17a-d36e284486dc",
@@ -80,6 +81,7 @@ INSERT INTO O_TFR
 	1,
 	'',
 	"9c14d408-8f21-49d5-bb56-989b96c91792",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("8091618a-960f-409a-aa94-b43a27c28abc",

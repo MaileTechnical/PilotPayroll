@@ -62,6 +62,7 @@ end for;
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("67668115-33d2-4f71-96f0-b8893def710d",
@@ -80,6 +81,7 @@ end for;
 	1,
 	'',
 	"8cac4492-498a-4aef-872c-1b3813b2dd4e",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("44ad1c48-8811-456d-b6fb-011ada00ca74",
@@ -104,6 +106,7 @@ return result;',
 	1,
 	'',
 	"67668115-33d2-4f71-96f0-b8893def710d",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("3b406592-749d-40df-9b91-c0a73394ac28",
@@ -168,6 +171,7 @@ end if;',
 	1,
 	'',
 	"44ad1c48-8811-456d-b6fb-011ada00ca74",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("dd0bef8c-1c65-458b-ab61-8be3f478ff35",
@@ -208,6 +212,7 @@ return 1.0;',
 	1,
 	'',
 	"a0cdf5c4-7bcc-4c98-8db6-33abe7e6a2d7",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("9a48d4de-43c3-4fbf-9aa1-ea0725959a69",

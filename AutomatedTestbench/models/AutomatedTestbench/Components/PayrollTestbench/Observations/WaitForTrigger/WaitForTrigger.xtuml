@@ -29,6 +29,7 @@ observation.AppendTriggered( seqLabel:param.seqLabel,
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("3c7576b1-d18a-4b0e-9946-8776047f9cfa",
@@ -70,6 +71,7 @@ obs.Complete( success:True );
 	1,
 	'',
 	"e6b616b9-4e8f-4c6b-bb50-4b098b6b28fa",
+	0,
 	0);
 INSERT INTO O_ID
 	VALUES (0,

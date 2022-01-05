@@ -33,6 +33,7 @@ observation.AppendPolling( seqLabel:param.seqLabel,
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("296427af-09b9-4bed-b3c9-da58f8d6c739",
@@ -158,6 +159,7 @@ obs.Complete( success:success );
 	1,
 	'',
 	"5e8207f4-f86f-45af-a366-cb9990cba0a9",
+	0,
 	0);
 INSERT INTO O_NBATTR
 	VALUES ("6f85c49c-d6ed-4a8e-9870-44ea10832d2c",
