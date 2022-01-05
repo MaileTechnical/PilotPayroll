@@ -33,6 +33,7 @@ LOG::LogInfo( message:"*** End of Payroll Generation *** " );
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_NBATTR
 	VALUES ("61dcdca3-d027-41a3-b20c-d3b918fdd33e",

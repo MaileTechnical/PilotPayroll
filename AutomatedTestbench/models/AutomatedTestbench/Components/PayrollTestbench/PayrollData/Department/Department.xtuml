@@ -32,6 +32,7 @@ return count;',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("ec82031d-6eea-4d52-8760-2aa5690852d8",
@@ -54,6 +55,7 @@ self.Reviewing = False;',
 	1,
 	'',
 	"637e5f80-bbad-4f46-92bb-2c1f2400bbdb",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("84daf5ef-a9a0-41be-90bf-b974ad8e471c",
@@ -80,6 +82,7 @@ return count;',
 	1,
 	'',
 	"ec82031d-6eea-4d52-8760-2aa5690852d8",
+	0,
 	0);
 INSERT INTO O_NBATTR
 	VALUES ("c0821f99-0707-4c95-a2d1-6e69d7b19fa8",

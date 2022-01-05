@@ -61,7 +61,7 @@ INSERT INTO GD_GE
 	"b9266a99-419d-4977-a5b3-f0a7f6342582",
 	93,
 	0,
-	'HRuser::Components::HRuser::Port1::HumanResources');
+	'HRuser::Components::HRuser::Payroll::HumanResources');
 INSERT INTO GD_CON
 	VALUES ("c4e954ad-a2b4-42c7-9fab-31c4d9fab773",
 	"00000000-0000-0000-0000-000000000000");

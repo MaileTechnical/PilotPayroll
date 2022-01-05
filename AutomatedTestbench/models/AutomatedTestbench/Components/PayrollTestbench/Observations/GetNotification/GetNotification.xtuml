@@ -28,6 +28,7 @@ end if;
 	1,
 	'',
 	"37784ddd-5a89-4c1d-9f28-f1688862acf0",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("37784ddd-5a89-4c1d-9f28-f1688862acf0",
@@ -50,6 +51,7 @@ obs.AppendTriggered( seqLabel:param.seqLabel,
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TPARM
 	VALUES ("83909e5d-0518-4a08-894b-357c2bd2f054",

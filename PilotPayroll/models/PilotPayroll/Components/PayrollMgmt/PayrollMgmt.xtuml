@@ -9,6 +9,7 @@ INSERT INTO C_C
 	0,
 	"00000000-0000-0000-0000-000000000000",
 	0,
+	'',
 	'');
 INSERT INTO GD_MD
 	VALUES ("b1b5332c-17f8-47a0-984e-26330c487971",
@@ -443,7 +444,8 @@ INSERT INTO C_PO
 	"7c6d191c-1502-4f72-9055-2069e5f671e6",
 	'USER',
 	0,
-	0);
+	0,
+	'');
 INSERT INTO C_IR
 	VALUES ("8673d1a5-e3c1-4890-a8c6-d82bc89731e7",
 	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
@@ -475,6 +477,7 @@ if ( not_empty dept )
 end if;
 ',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1ba55bd7-0e2e-4583-86b6-7e4ec6170539",
@@ -484,6 +487,7 @@ INSERT INTO C_EP_PROXY
 	'Request from client to get department payroll data for review.
 Some reviewers request only those items with on-hold status.
 ',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("e452186a-96ca-4a24-aab6-9db618b60569",
@@ -497,6 +501,7 @@ Not used for preliminary Use Cases.
 ',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4d9c995d-41df-4210-b324-bacfc13385c6",
@@ -506,6 +511,7 @@ INSERT INTO C_EP_PROXY
 	'Update a payment element amount for an employee on a department payroll.
 Not used for preliminary Use Cases.
 ',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("2d2951f1-f7bf-4ff2-91bf-5d9b221a1528",
@@ -529,6 +535,7 @@ if ( not_empty dept )
   end if;
 end if;',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("629926c0-e851-45a1-a84c-1776a2a7cba6",
@@ -538,6 +545,7 @@ INSERT INTO C_EP_PROXY
 	'Approve a payment element for an employee on a department payroll.
 Preliminary Use Cases only approve hold status.
 ',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("f8de3ba4-c757-43e6-9493-246185227011",
@@ -561,6 +569,7 @@ if ( not_empty dept )
   end if;
 end if;',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("bb2c26a6-cd84-4b87-8bb5-ed5924eab856",
@@ -570,6 +579,7 @@ INSERT INTO C_EP_PROXY
 	'Update the on-hold status of a payment element for an employee on a department payroll.
 
 ',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("759593f3-52e5-483a-81ae-8120e73b4312",
@@ -583,6 +593,7 @@ Not used for preliminary Use Cases.
 ',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f143ad52-738b-43d7-a3a2-d79376361797",
@@ -592,6 +603,7 @@ INSERT INTO C_EP_PROXY
 	'Client submits an on-hold status for the entire payment for an employee in a department.
 Not used for preliminary Use Cases.
 ',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("537ef455-63f8-44f2-a3fe-11666471a47b",
@@ -605,6 +617,7 @@ Not used for preliminary Use Cases.
 ',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5ddc2f40-c598-4724-b9e2-e763f4901ac4",
@@ -614,6 +627,7 @@ INSERT INTO C_EP_PROXY
 	'Signal approval of the entire payment for an employee in a department.
 Not used for preliminary Use Cases.
 ',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("6caf6b8c-d33e-471f-b6ca-ee9e88c3ecee",
@@ -625,6 +639,7 @@ INSERT INTO SPR_PS
 	'Data for single payroll payment element for an employee in a department.',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
@@ -632,6 +647,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'PayrollData',
 	'Data for single payroll payment element for an employee in a department.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("b78d9224-37d3-4371-829b-727ce3157b4b",
@@ -643,6 +659,7 @@ INSERT INTO SPR_PS
 	'Notify a client of some occurrence.',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("0f25438a-f717-4b80-b06c-9ce0f1c905c4",
@@ -650,6 +667,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'Notification',
 	'Notify a client of some occurrence.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("8be019a9-e027-42fd-810b-bd39356e51a2",
@@ -671,6 +689,7 @@ if ( not_empty dept )
   end if;
 end if;',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("180cc4e4-f88e-432c-8950-48095a2171f1",
@@ -678,6 +697,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'SubmitPayrollApproval',
 	'Signal that the payroll for a department has been approved by a client user.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("3262aaf6-56ac-4e75-9cdb-de7134df3f29",
@@ -697,6 +717,7 @@ end if;
 select one payroll related by dept->Payroll[R34.''has under review''];
 payroll.AssessForSubmittal();',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("cd89f044-8052-4bd7-828a-07b3030804fc",
@@ -704,6 +725,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'SubmitToFinance',
 	'Signal that client user wishes to submit finally reviewed payroll to Finance for payment.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("2e4fa06e-2fb2-48b4-bd9c-8dca953ad57a",
@@ -717,6 +739,7 @@ Not used for preliminary Use Cases.
 ',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("dce7039f-aa29-4ba4-af47-7258d8fb7941",
@@ -726,6 +749,7 @@ INSERT INTO C_EP_PROXY
 	'Signal acceptance from Finance of a department payroll submitted for payment.
 Not used for preliminary Use Cases.
 ',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("f9413599-a85d-4909-9ad3-b44281dc4af2",
@@ -737,6 +761,7 @@ INSERT INTO SPR_PS
 	'Signal that all of multi-part data stream requested has been sent to6the requesting client.',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("79e0cec4-ae5c-4386-bba6-8e0cbd7b5655",
@@ -744,6 +769,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'DataSent',
 	'Signal that all of multi-part data stream requested has been sent to6the requesting client.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("8185cb14-1495-4f74-aba2-96daf97f3cbf",
@@ -770,6 +796,7 @@ end if;
 
 ',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4977673c-bec5-4608-b2c5-3676282e237e",
@@ -777,6 +804,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'UpdatesSent',
 	'Signal that all payroll updates for a department have been submitted by client.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("c9db54ef-53ad-41c4-a2cd-98091ba479d8",
@@ -788,6 +816,7 @@ INSERT INTO SPR_PS
 	'Details of an employee on a payroll requested for review.',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ff9b6c68-ccf3-4e51-ba31-b1ad9d4ee0af",
@@ -795,6 +824,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'PayeeData',
 	'Details of an employee on a payroll requested for review.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("ee544d00-85d5-405d-9f39-048b2befa83a",
@@ -806,6 +836,7 @@ INSERT INTO SPR_PS
 	'A request for those departments with a payroll currently available for review.',
 	'::AvailablePayrolls();',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("e4c136c3-a15a-4c1d-a50d-388ef28a61ba",
@@ -813,6 +844,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'AvailablePayrolls',
 	'A request for those departments with a payroll currently available for review.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("66353e67-f6b4-4c46-98b3-e3ae3e8ccefb",
@@ -824,6 +856,7 @@ INSERT INTO SPR_PS
 	'Data specifying a department which has a payroll available for review.',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4d16c31d-6243-441a-8a49-f1f48cf4331d",
@@ -831,6 +864,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'PayrollAvailable',
 	'Data specifying a department which has a payroll available for review.',
+	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("cbed0e18-6775-4be9-b1f9-61714edc73e6",
@@ -843,7 +877,8 @@ INSERT INTO C_PO
 	"7c6d191c-1502-4f72-9055-2069e5f671e6",
 	'TEST',
 	0,
-	0);
+	0,
+	'');
 INSERT INTO C_IR
 	VALUES ("3292a579-0515-41b4-b314-8ead46e6b1b1",
 	"21fbab59-853a-47c8-8d2a-8eb0722f711c",
@@ -867,6 +902,7 @@ INSERT INTO SPR_PS
 ::CreatePEIs();
 send TEST::InitializationComplete();',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("61af314c-605b-4abd-adf2-8f6d09aeb759",
@@ -874,6 +910,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'Initialize',
 	'',
+	0,
 	'../../Interfaces/TestSupport/TestSupport.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("69bba201-7497-411b-9bbe-4bd2b1f4ac43",
@@ -885,6 +922,7 @@ INSERT INTO SPR_PS
 	'',
 	'',
 	1,
+	0,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("fabcaa82-3b97-411c-b1bf-17a14b574e6b",
@@ -892,6 +930,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'InitializationComplete',
 	'',
+	0,
 	'../../Interfaces/TestSupport/TestSupport.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("21fbab59-853a-47c8-8d2a-8eb0722f711c",

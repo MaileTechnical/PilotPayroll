@@ -115,6 +115,7 @@ bucket.Initialized();
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	0,
 	0);
 INSERT INTO O_TFR
 	VALUES ("21aa3693-a0da-4dc9-ad62-142e4898d206",
@@ -130,6 +131,7 @@ bucket.AddToSuite();',
 	1,
 	'',
 	"191e6c2b-3e35-4044-a8a0-9ad18686dfc6",
+	0,
 	0);
 INSERT INTO O_ID
 	VALUES (0,

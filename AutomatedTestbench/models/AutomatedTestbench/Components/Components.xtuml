@@ -271,7 +271,7 @@ INSERT INTO GD_GE
 	"e5980b09-89c3-4062-bf67-ccb236ad375b",
 	93,
 	0,
-	'AutomatedTestbench::Components::PayrollTestbench::Port1::Unnamed Interface');
+	'AutomatedTestbench::Components::PayrollTestbench::TESTAPPSUPPORT::TestSupport');
 INSERT INTO GD_CON
 	VALUES ("bdb88cb3-7814-4206-9dfd-fcb35d7a47ed",
 	"00000000-0000-0000-0000-000000000000");

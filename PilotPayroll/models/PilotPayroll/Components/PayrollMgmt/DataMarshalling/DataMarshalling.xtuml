@@ -93,6 +93,7 @@ send USER::DataSent( Ident:"payroll", Count:count );',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
+	0,
 	0);
 INSERT INTO S_SPARM
 	VALUES ("01898846-dc9a-4a4c-b295-fb92bf20c24c",
@@ -152,6 +153,7 @@ send USER::DataSent( Ident:"available", Count:count );',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
+	0,
 	0);
 INSERT INTO PE_PE
 	VALUES ("b71aad5b-341a-499a-8d47-a5b5f86a6927",
@@ -174,6 +176,7 @@ INSERT INTO C_C_PROXY
 	0,
 	"00000000-0000-0000-0000-000000000000",
 	0,
+	'',
 	'',
 	'../PayrollMgmt.xtuml');
 INSERT INTO S_SYS_PROXY

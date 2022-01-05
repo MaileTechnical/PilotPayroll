@@ -10,7 +10,8 @@ INSERT INTO C_EP
 	"dd3d882c-a83f-4c8d-878b-94053cc6d7a5",
 	-1,
 	'SubmitPayroll',
-	'');
+	'',
+	0);
 INSERT INTO C_AS
 	VALUES ("19479001-5e3e-479d-8ce4-494cfc76a5b3",
 	'SubmitPayroll',
@@ -31,7 +32,8 @@ INSERT INTO C_EP
 	"dd3d882c-a83f-4c8d-878b-94053cc6d7a5",
 	-1,
 	'AcceptPayroll',
-	'');
+	'',
+	0);
 INSERT INTO C_AS
 	VALUES ("165ca226-5b2f-41b7-a9e0-adcc07af47bd",
 	'AcceptPayroll',
