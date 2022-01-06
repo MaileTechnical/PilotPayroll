@@ -95,8 +95,8 @@ public class TestControlMsgController {
     
     // Incoming (to this component) messages.
     // The following methods forward incoming messages to the (JavaScript) client which
-    // subscribes to a location-specific message-broker topic.  For example, the "North"
-    // entry stand subscribes to "/topic/EntryStand/North".
+    // subscribes to a location-specific message-broker topic.
+    
     public void SendCurrentDateTimeMessage ( String CurrentDateTime ) throws Exception {
     	CurrentDateTimeMsg msg = new CurrentDateTimeMsg( "CurrentDateTime", CurrentDateTime );
         String topic = "/topic/TestControl";
