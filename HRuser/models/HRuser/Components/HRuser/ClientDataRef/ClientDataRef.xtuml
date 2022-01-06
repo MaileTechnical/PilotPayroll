@@ -1,0 +1,69 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("d7dd26d0-a277-469b-8b85-458d3cd2e6d2",
+	"00000000-0000-0000-0000-000000000000",
+	"20cb96e4-e47e-4962-9629-4c10e15e7ea2",
+	'ClientDataRef',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("c3b5892b-27b3-46ed-b532-325ca12acb98",
+	112,
+	"d7dd26d0-a277-469b-8b85-458d3cd2e6d2",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'HRuser::Components::HRuser::ClientDataRef');
+INSERT INTO DIM_DIA
+	VALUES ("c3b5892b-27b3-46ed-b532-325ca12acb98",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO EP_PKGREF
+	VALUES ("d7dd26d0-a277-469b-8b85-458d3cd2e6d2",
+	"f883a3ff-b3f8-4d58-9478-25006bd1c98c");
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f883a3ff-b3f8-4d58-9478-25006bd1c98c",
+	"5713191d-1d3c-41cb-add1-1cce3729acf2",
+	"5713191d-1d3c-41cb-add1-1cce3729acf2",
+	'ClientData',
+	'',
+	0,
+	'../../../../../../PilotPayroll/models/PilotPayroll/ClientData/ClientData.xtuml');
+INSERT INTO PE_PE
+	VALUES ("d7dd26d0-a277-469b-8b85-458d3cd2e6d2",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"b85aebec-ba33-486a-acde-3d7c5d4dd64d",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("b85aebec-ba33-486a-acde-3d7c5d4dd64d",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'HRuser',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'',
+	'../HRuser.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("20cb96e4-e47e-4962-9629-4c10e15e7ea2",
+	'HRuser',
+	1,
+	'../../../HRuser.xtuml');

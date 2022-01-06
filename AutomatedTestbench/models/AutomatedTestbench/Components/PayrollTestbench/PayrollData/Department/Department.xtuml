@@ -17,16 +17,21 @@ INSERT INTO O_TFR
 	'// Send any updates to ''hold'' status of payroll elements.
 // Return the count of the number of updates sent.
 
-select many entries from instances of PayrollElement
+select many updates from instances of Updates
  where selected.HoldUpdated;
 count = 0;
-if ( not_empty entries )
-  for each entry in entries
-    select one payee related by entry->Payee[R90.''contributes to''];
+if ( not_empty updates )
+  for each update in updates
+  	update.HoldUpdated = false;
+    select one payee related by update->Payee[R90.''contributes to''];
+    select one payment related by update->Payment[R90.''aggregates''];
     select one dept related by payee->Department[R80.''belongs to''];
-    send TESTAPP::SubmitItemHold( Department:dept.Name, EmployeeID:payee.EmployeeID, PaymentLabel:entry.Label, HoldStatus:entry.Hold );
-    count = count + 1;
+    send TESTAPP::SubmitItemHold( Department:dept.Name, 
+                                  EmployeeID:payee.EmployeeID, 
+                                  PaymentLabel:payment.label, 
+                                  HoldStatus: payment.onhold );
   end for;
+  count = count + 1;
 end if;
 return count;',
 	1,
@@ -43,10 +48,12 @@ INSERT INTO O_TFR
 	1,
 	'select many payees related by self->Payee[R80.''employs''];
 for each payee in payees
-  select many elements related by payee->PayrollElement[R90.''aggregates''];
-  for each element in elements
-  	unrelate element from payee across R90.''contributes to'';
-  	delete object instance element;
+  select many payments related by payee->Payment[R90.''aggregates''];
+  for each payment in payments
+    select one update related by payment ->Updates[R90];
+  	unrelate payment from payee across R90.''contributes to'' using update;
+  	delete object instance payment;
+  	delete object instance update;
   end for;
   unrelate payee from self across R80.''belongs to'';
   delete object instance payee;
@@ -67,14 +74,18 @@ INSERT INTO O_TFR
 	'// Send any updates to ''approved'' status of payroll elements.
 // Return the count of the number of updates sent.
 
-select many entries from instances of PayrollElement
+select many updates from instances of Updates
  where selected.ApproveUpdated;
 count = 0;
-if ( not_empty entries )
-  for each entry in entries
-    select one payee related by entry->Payee[R90.''contributes to''];
+if ( not_empty updates )
+  for each update in updates
+  	update.ApproveUpdated = false;
+    select one payee related by update->Payee[R90.''contributes to''];
+    select one payment related by update->Payment[R90.''aggregates''];
     select one dept related by payee->Department[R80.''belongs to''];
-    send TESTAPP::SubmitItemApproval( Department:dept.Name, EmployeeID:payee.EmployeeID, PaymentLabel:entry.Label );
+    send TESTAPP::SubmitItemApproval( Department:dept.Name, 
+                                      EmployeeID:payee.EmployeeID, 
+                                      PaymentLabel:payment.label );
   end for;
   count = count + 1;
 end if;

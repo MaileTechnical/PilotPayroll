@@ -50,46 +50,44 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'MarshalPayroll',
 	'Send department employee and payment element data on request.',
-	'// Send employee identification for each requested employee.
-// Then follow with payment details for each employee.
+	'// Send employee identification for each requested employee,
+// followed by payment details for the employee
 
-count = 0;
+employee_count = 0;
 employees = param.Employees;
 for each employee in employees
+  select many elements related by employee->EmployeePayment[R7]
+                                          ->EmployeePaymentElement[R15.''is composed of''];
+  for each element in elements
+  	create object instance payment of Payment;
+  	relate payment to employee across R100;
+  	select one spec related by element->PaymentStructureElement[R13.''is a realization of'']
+  	                                  ->PaymentElementSpec[R12.''is typed by''];
+  	payment.label = spec.Label;
+  	payment.amount = element.Amount;
+  	select one payroll related by element->Payroll[R29.''is on hold for''];
+  	if ( not_empty payroll )
+  	  payment.onhold = true;
+  	end if;
+  	select one payroll related by element->Payroll[R35.''needs approval for''];
+  	if ( not_empty payroll )
+  	  payment.unapproved = true;
+  	end if;
+  end for;
+  select many payments related by employee->Payment[R100];
   send USER::PayeeData( Department:param.DeptName, 
                         EmployeeID:employee.NationalID, 
                         EmployeeFirstName:employee.FirstName, 
-                        EmployeeLastName:employee.LastName );
-  count = count + 1;
+                        EmployeeLastName:employee.LastName,
+                        Payments:payments);
+   for each payment in payments  // delete transient data after send.
+   	 unrelate payment from employee across R100.''contributes to'';
+   	 delete object instance payment;
+   end for;
+   employee_count = employee_count + 1;
 end for;
-send USER::DataSent( Ident:"employees", Count:count );
-
-count = 0;
-for each employee in employees
-  select many payments related by employee->EmployeePayment[R7]
-                                          ->EmployeePaymentElement[R15.''is composed of''];
-  for each payment in payments
-    hold = False;
-    unapproved = False;
-    select one payroll related by payment->Payroll[R29.''is on hold for''];
-    if ( not_empty payroll )
-      hold = True;
-    end if;
-    select one payroll related by payment->Payroll[R35.''needs approval for''];
-    if ( not_empty payroll )
-      unapproved = True;
-    end if;  	
-    select one spec related by payment->PaymentStructureElement[R13.''is a realization of'']
-  	                                  ->PaymentElementSpec[R12.''is typed by''];
-    send USER::PayrollData( EmployeeID:employee.NationalID,
-                            PaymentLabel:spec.Label, 
-                            PaymentAmount:payment.Amount, 
-                            HoldStatus:hold, 
-                            UnapprovalStatus: unapproved  );
-    count = count + 1;
-  end for;
-end for;
-send USER::DataSent( Ident:"payroll", Count:count );',
+send USER::DataSent( Ident:"payroll", Count:employee_count );
+',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',

@@ -31,10 +31,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.HtmlUtils;
 
-import payrolldeployment.AdvanceTimeMsg;         // AdvanceTime message class
-import payrolldeployment.SetTimeMsg;             // SetTime message class
-import payrolldeployment.CurrentDateTimeMsg;     // Current date and time message class
-import payrolldeployment.GetTimeMsg;             // GetTime message class
+import interfaces.timecontrol.AdvanceTimeMsg;         // AdvanceTime message class
+import interfaces.timecontrol.SetTimeMsg;             // SetTime message class
+import interfaces.timecontrol.CurrentDateTimeMsg;     // Current date and time message class
+import interfaces.timecontrol.GetTimeMsg;             // GetTime message class
 import payrolldeployment.TestControl;            // Shell component
 
 // The Spring framework arranges for an instance of this class to be
@@ -98,7 +98,7 @@ public class TestControlMsgController {
     // subscribes to a location-specific message-broker topic.  For example, the "North"
     // entry stand subscribes to "/topic/EntryStand/North".
     public void SendCurrentDateTimeMessage ( String CurrentDateTime ) throws Exception {
-    	CurrentDateTimeMsg msg = new CurrentDateTimeMsg( CurrentDateTime );
+    	CurrentDateTimeMsg msg = new CurrentDateTimeMsg( "CurrentDateTime", CurrentDateTime );
         String topic = "/topic/TestControl";
         this.template.convertAndSend( topic, msg );
     }

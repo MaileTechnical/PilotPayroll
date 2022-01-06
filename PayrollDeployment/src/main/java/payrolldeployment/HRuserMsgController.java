@@ -32,20 +32,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.HtmlUtils;
 
 import payrolldeployment.hruser.HRuserPayroll;             // HRuser-Payroll port
-import payrolldeployment.payrollmgmt.PayrollMgmtUSER;      // CarPark-PaymentMachine port
+import payrolldeployment.payrollmgmt.PayrollMgmtUSER;      // 
 import payrolldeployment.HRuser;                           // Shell component
-import payrolldeployment.NotificationMsg;
-import payrolldeployment.PayeeDataMsg;
-import payrolldeployment.PayrollDataMsg;
-import payrolldeployment.DataSentMsg;
-import payrolldeployment.RetrievePayrollForReviewMsg;
-import payrolldeployment.SubmitItemHoldMsg;
-import payrolldeployment.SubmitItemApprovalMsg;
-import payrolldeployment.SubmitPayrollApprovalMsg;
-import payrolldeployment.SubmitToFinanceMsg;
-import payrolldeployment.UpdatesSentMsg;
-import payrolldeployment.AvailablePayrollsMsg;
-import payrolldeployment.PayrollAvailableMsg;
+import interfaces.humanresources.NotificationMsg;
+import interfaces.humanresources.PayeeDataMsg;
+import interfaces.humanresources.DataSentMsg;
+import interfaces.humanresources.RetrievePayrollForReviewMsg;
+import interfaces.humanresources.SubmitItemHoldMsg;
+import interfaces.humanresources.SubmitItemApprovalMsg;
+import interfaces.humanresources.SubmitPayrollApprovalMsg;
+import interfaces.humanresources.SubmitToFinanceMsg;
+import interfaces.humanresources.UpdatesSentMsg;
+import interfaces.humanresources.AvailablePayrollsMsg;
+import interfaces.humanresources.PayrollAvailableMsg;
+
+import payrolldeployment.hruser.clientdata.PaymentSet;
+import payrolldeployment.hruser.clientdata.impl.PaymentSetImpl;
 
 // The Spring framework arranges for an instance of this class to be
 // created, passing an instance of SimpMessagingTemplate as an argument,
@@ -127,7 +129,7 @@ public class HRuserMsgController {
     public void SubmitItemHold( SubmitItemHoldMsg message ) throws Exception {
     	try {
       	  HRuser.Singleton().Payroll().SubmitItemHold( message.getDepartment(),
-      			                                       Integer.parseInt( message.getEmployeeId() ),
+      			                                       Integer.parseInt( message.getEmployeeID() ),
       			                                       message.getPaymentLabel(),
       			                                       Boolean.parseBoolean( message.getHoldStatus() ) );
       	}
@@ -140,7 +142,7 @@ public class HRuserMsgController {
     public void SubmitItemApproval( SubmitItemApprovalMsg message ) throws Exception {
     	try {
       	  HRuser.Singleton().Payroll().SubmitItemApproval( message.getDepartment(),
-      			                                           Integer.parseInt( message.getEmployeeId() ),
+      			                                           Integer.parseInt( message.getEmployeeID() ),
       			                                           message.getPaymentLabel() );
       	}
       	catch ( Exception e ) {
@@ -175,30 +177,18 @@ public class HRuserMsgController {
     public void SendPayeeDataMsg( String Department, 
     		                      Integer EmployeeId, 
     		                      String EmployeeFirstName,
-    		                      String EmployeeLastName ) throws Exception {
+    		                      String EmployeeLastName,
+    		                      PaymentSet Payments) throws Exception {
     	PayeeDataMsg msg = new PayeeDataMsg( "PayeeData",
     			                              Department,
     			                              String.valueOf( EmployeeId ),
     			                              EmployeeFirstName,
-    			                              EmployeeLastName );
+    			                              EmployeeLastName,
+    			                              Payments.serialize() );
         String topic = "/topic/HRuser/";
         this.template.convertAndSend( topic, msg );
     }
     
-    public void SendPayrollDataMsg( Integer EmployeeId,
-                                    String PaymentLabel,
-    		                        Double PaymentAmount,
-    		                        Boolean HoldStatus,
-    		                        Boolean UnapprovalStatus ) throws Exception {
-    	PayrollDataMsg msg = new PayrollDataMsg( "PayrollData",
-    	                                          String.valueOf( EmployeeId ),
-    			                                  PaymentLabel,
-    			                                  String.valueOf( PaymentAmount ),
-    			                                  String.valueOf( HoldStatus ),
-    			                                  String.valueOf( UnapprovalStatus ) );
-        String topic = "/topic/HRuser/";
-        this.template.convertAndSend( topic, msg );
-    }
     
      // End of incoming messages.
 }

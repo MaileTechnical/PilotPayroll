@@ -1,8 +1,13 @@
 package payrolldeployment;
 
 
-import payrolldeployment.hruser.HRuserPayroll;
 import payrolldeployment.HRuserMsgController;
+import payrolldeployment.hruser.HRuserPayroll;
+import payrolldeployment.hruser.clientdata.Payment;
+import payrolldeployment.hruser.clientdata.PaymentSet;
+import payrolldeployment.hruser.clientdata.impl.PaymentImpl;
+import payrolldeployment.hruser.clientdata.impl.PaymentSetImpl;
+
 
 import io.ciera.runtime.summit.application.IApplication;
 import io.ciera.runtime.summit.application.IRunContext;
@@ -25,7 +30,9 @@ public class HRuser extends Component<HRuser> {
 
     public HRuser(IApplication app, IRunContext runContext, int populationId) {
         super(app, runContext, populationId);
+        Payment_extent = new PaymentSetImpl();
         classDirectory = new TreeMap<>();
+        classDirectory.put("Payment", PaymentImpl.class);
         singleton = this;
     }
     
@@ -40,15 +47,9 @@ public class HRuser extends Component<HRuser> {
       	} catch ( Exception e ) {}
     }
 
-    public void PayeeData( final String p_Department, final int p_EmployeeID, final String p_EmployeeFirstName, final String p_EmployeeLastName ) throws XtumlException {
+    public void PayeeData( final String p_Department, final int p_EmployeeID, final String p_EmployeeFirstName, final String p_EmployeeLastName, final PaymentSet p_Payments ) throws XtumlException {
     	try {
-            HRuserMsgController.Singleton().SendPayeeDataMsg( p_Department, p_EmployeeID, p_EmployeeFirstName, p_EmployeeLastName );
-      	} catch ( Exception e ) {}
-    }
-
-    public void PayrollData( final int p_EmployeeID, final String p_PaymentLabel,  final double p_PaymentAmount,  final boolean p_HoldStatus, final boolean p_UnapprovalStatus ) throws XtumlException {
-    	try {
-            HRuserMsgController.Singleton().SendPayrollDataMsg( p_EmployeeID, p_PaymentLabel, p_PaymentAmount, p_HoldStatus, p_UnapprovalStatus );
+            HRuserMsgController.Singleton().SendPayeeDataMsg( p_Department, p_EmployeeID, p_EmployeeFirstName, p_EmployeeLastName, p_Payments );
       	} catch ( Exception e ) {}
     }
 
@@ -68,6 +69,10 @@ public class HRuser extends Component<HRuser> {
 
 
     // instance selections
+    private PaymentSet Payment_extent;
+    public PaymentSet Payment_instances() {
+        return Payment_extent;
+    }
 
 
     // relationship selections
@@ -111,6 +116,7 @@ public class HRuser extends Component<HRuser> {
     public boolean addInstance( IModelInstance<?,?> instance ) throws XtumlException {
         if ( null == instance ) throw new BadArgumentException( "Null instance passed." );
         if ( instance.isEmpty() ) throw new EmptyInstanceException( "Cannot add empty instance to population." );
+        if ( instance instanceof Payment ) return Payment_extent.add( (Payment)instance );
 
         return false;
     }
@@ -119,6 +125,7 @@ public class HRuser extends Component<HRuser> {
     public boolean removeInstance( IModelInstance<?,?> instance ) throws XtumlException {
         if ( null == instance ) throw new BadArgumentException( "Null instance passed." );
         if ( instance.isEmpty() ) throw new EmptyInstanceException( "Cannot remove empty instance from population." );
+        if ( instance instanceof Payment ) return Payment_extent.remove( (Payment)instance );
 
         return false;
     }

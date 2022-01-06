@@ -297,76 +297,18 @@ INSERT INTO C_PP
 	'',
 	"a4e8d6b2-b24f-4754-861e-93619fc48d52");
 INSERT INTO C_EP
-	VALUES ("8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
+	VALUES ("0f25438a-f717-4b80-b06c-9ce0f1c905c4",
 	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
 	-1,
-	'PayrollData',
-	'Data for single payroll payment element for an employee in a department.',
+	'Notification',
+	'Notify a client of some occurrence.',
 	0);
 INSERT INTO C_AS
-	VALUES ("8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	'PayrollData',
-	'Data for single payroll payment element for an employee in a department.',
+	VALUES ("0f25438a-f717-4b80-b06c-9ce0f1c905c4",
+	'Notification',
+	'Notify a client of some occurrence.',
 	1,
 	"5ddc2f40-c598-4724-b9e2-e763f4901ac4");
-INSERT INTO C_PP
-	VALUES ("e7c69cb8-6752-4a12-b165-072faacafdb0",
-	"8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'EmployeeID',
-	'',
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("255d080b-9045-41c1-b927-41ef7aca1f3a",
-	"8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'PaymentLabel',
-	'',
-	0,
-	'',
-	"e7c69cb8-6752-4a12-b165-072faacafdb0");
-INSERT INTO C_PP
-	VALUES ("dd6ae2e6-3b2a-4218-8d36-99681cb8b949",
-	"8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'PaymentAmount',
-	'',
-	0,
-	'',
-	"255d080b-9045-41c1-b927-41ef7aca1f3a");
-INSERT INTO C_PP
-	VALUES ("fe35f754-b648-42e8-a367-29ab34cc644f",
-	"8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"ba5eda7a-def5-0000-0000-000000000001",
-	'HoldStatus',
-	'True if this payment item is held.',
-	0,
-	'',
-	"dd6ae2e6-3b2a-4218-8d36-99681cb8b949");
-INSERT INTO C_PP
-	VALUES ("57bc0b79-ad84-4d52-850d-7a14daad3fa5",
-	"8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"ba5eda7a-def5-0000-0000-000000000001",
-	'UnapprovalStatus',
-	'True if this payment item is unapproved',
-	0,
-	'',
-	"fe35f754-b648-42e8-a367-29ab34cc644f");
-INSERT INTO C_EP
-	VALUES ("0f25438a-f717-4b80-b06c-9ce0f1c905c4",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	-1,
-	'Notification',
-	'Notify a client of some occurrence.',
-	0);
-INSERT INTO C_AS
-	VALUES ("0f25438a-f717-4b80-b06c-9ce0f1c905c4",
-	'Notification',
-	'Notify a client of some occurrence.',
-	1,
-	"8c9de5fe-1015-4d0e-bc74-0aa939a8f275");
 INSERT INTO C_PP
 	VALUES ("1db19890-3460-46ba-ba5f-113fc5bf57d9",
 	"0f25438a-f717-4b80-b06c-9ce0f1c905c4",
@@ -566,6 +508,22 @@ INSERT INTO C_PP
 	0,
 	'',
 	"35b4a243-334e-41cf-ba71-d26f38114df4");
+INSERT INTO C_PP
+	VALUES ("0ef75de2-5c13-4ac9-a437-4afe6f2329fc",
+	"ff9b6c68-ccf3-4e51-ba31-b1ad9d4ee0af",
+	"13bc6c62-8e3a-449f-9331-1c2f222ec058",
+	'Payments',
+	'',
+	0,
+	'',
+	"25c4956a-4c0f-4e60-a5c2-efedbdef729e");
+INSERT INTO S_DT_PROXY
+	VALUES ("13bc6c62-8e3a-449f-9331-1c2f222ec058",
+	"00000000-0000-0000-0000-000000000000",
+	'inst_ref_set<Payment>',
+	'',
+	'',
+	'../../ClientData/ClientData.xtuml');
 INSERT INTO C_EP
 	VALUES ("e4c136c3-a15a-4c1d-a50d-388ef28a61ba",
 	"cbed0e18-6775-4be9-b1f9-61714edc73e6",

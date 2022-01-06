@@ -1,2 +1,5 @@
 *,RootPackage,*,PayrollDeployment::PayrollDeployment
 Components::PayrollMgmt,InitFunction,Component,CreatePEIs
+*,GenerateMessageClasses,Interface,IHumanResources
+*,GenerateMessageClasses,Interface,ITestSupport
+*,GenerateMessageClasses,Interface,ITimeControl
