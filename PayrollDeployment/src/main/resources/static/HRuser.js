@@ -3,6 +3,7 @@ var stompClient = null;
 var vm = new Vue({
 	el: '#main-content',
 	data: {
+	    ShowMsgs: false,
 	    AvailableDisabled: true,
 	    PayrollRequestDisabled: true,
 	    CancelDisabled: true,
@@ -63,11 +64,15 @@ function disconnect() {
     console.log("Disconnected");
 }
 
+function toggleMsgs() {
+    vm.ShowMsgs = !vm.ShowMsgs;
+}
+
 // Client-to-server messages.
 
 function sendAvailablePayrolls() {
     stompClient.send( "/app/AvailablePayrolls", {}, 
-      JSON.stringify( {'payload': "unused" } ) );
+      JSON.stringify( {'messageName': "AvailablePayrolls" } ) );
 }
 
 function sendRetrievePayrollForReview() {
@@ -105,14 +110,26 @@ function availablePayroll ( message ) {
  }
 
 function payeeDataMsg( message ) {
-    // accept a payee element data message 
+    // accept a payee data message - now carries set of payment elements
     var ename = JSON.parse( message.body ).employeeFirstName + " " + JSON.parse( message.body ).employeeLastName;
-    $("#entries").append("<tr><td>" + ename + "</td></tr>");
+    var payments = JSON.parse( message.body ).payments;
+
+    var paymentset = JSON.parse( payments ).PaymentSet;
+    var pentry = "";
+    var pelemt = "";
+    var sep = "    ";
+    for (var i=0;i<paymentset.length;i++) {
+      pelemt = JSON.parse( paymentset[i] ).m_label + " " + JSON.parse( paymentset[i] ).m_amount;
+      pentry = pentry + sep + pelemt;
+      sep = ";   ";
+    } 
+    pentry = ename + ":  " + pentry;
+    $("#entries").append("<tr><td>" + pentry + "</td></tr>");
     $("#payrollentries").show();
 }
 
 function payrollDataMsg( message ) {
-    // accept a payroll element data message - just display it, for now
+    // accept a payroll element data message - just display it, for now - no longer used: see payeeDataMsg
     var pentry = JSON.parse( message.body ).paymentLabel + " " + JSON.parse( message.body ).paymentAmount;
     $("#entries").append("<tr><td>" + pentry + "</td></tr>");
     $("#payrollentries").show();
@@ -140,6 +157,8 @@ function showReply( message ) {
             vm.AvailableDisabled = false;
         }
         if ( msgident == "approved" ) {
+            vm.AvailableDisabled = true;
+            vm.UpdateDisabled = true;
             vm.ApproveDisabled = true;
             vm.SubmitDisabled = false;
         }
@@ -157,6 +176,7 @@ function showReply( message ) {
                }
            }   
            if ( dataident == "payroll" ) {
+               vm.PayrollRequestDisabled = true;
                vm.UpdateDisabled = false;
                vm.ApproveDisabled = false;
                $("#payrollentries").show();
@@ -181,4 +201,5 @@ $(function () {
     $( "#update" ).click(function() { sendUpdates(); });
     $( "#approve" ).click(function() { sendSubmitPayrollApproval(); });
     $( "#finance" ).click(function() { sendSubmitToFinance(); });
+    $( "#msgdisplay" ).click(function() { toggleMsgs(); });
 });
