@@ -663,7 +663,7 @@ select any dept from instances of Department
 if ( not_empty dept )
   select one payroll related by dept->Payroll[R34.''has under review''];
   if ( not_empty payroll )
-    payroll.AssessForApproval();
+    generate Payroll8:Approve() to payroll;
   else
     LOG::LogFailure( message:"Payroll not found for approval" );
   end if;

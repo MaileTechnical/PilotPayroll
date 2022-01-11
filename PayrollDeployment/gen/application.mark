@@ -3,3 +3,4 @@ Components::PayrollMgmt,InitFunction,Component,CreatePEIs
 *,GenerateMessageClasses,Interface,IHumanResources
 *,GenerateMessageClasses,Interface,ITestSupport
 *,GenerateMessageClasses,Interface,ITimeControl
+Interfaces::HumanResources,Serialize,Interface,Serialize

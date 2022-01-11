@@ -103,34 +103,27 @@ function sendSubmitToFinance() {
 
 // Support functions for incoming message handling
 
-function availablePayroll ( message ) {
-    var dept = JSON.parse( message.body ).department;
+function availablePayroll ( payload ) {
+    var dept = JSON.parse( payload ).Department;
     $("#payrolls").append("<tr><td>" + dept + "</td></tr>");
     $("#payrolldepts").show();
  }
 
-function payeeDataMsg( message ) {
+function payeeDataMsg( payload ) {
     // accept a payee data message - now carries set of payment elements
-    var ename = JSON.parse( message.body ).employeeFirstName + " " + JSON.parse( message.body ).employeeLastName;
-    var payments = JSON.parse( message.body ).payments;
+    var ename = JSON.parse( payload ).EmployeeFirstName + " " + JSON.parse( payload ).EmployeeLastName;
+    var payments = JSON.parse( payload ).Payments;
 
     var paymentset = JSON.parse( payments ).PaymentSet;
     var pentry = "";
     var pelemt = "";
     var sep = "    ";
     for (var i=0;i<paymentset.length;i++) {
-      pelemt = JSON.parse( paymentset[i] ).m_label + " " + JSON.parse( paymentset[i] ).m_amount;
+      pelemt = JSON.parse( paymentset[i] ).label + " " + JSON.parse( paymentset[i] ).amount;
       pentry = pentry + sep + pelemt;
       sep = ";   ";
     } 
     pentry = ename + ":  " + pentry;
-    $("#entries").append("<tr><td>" + pentry + "</td></tr>");
-    $("#payrollentries").show();
-}
-
-function payrollDataMsg( message ) {
-    // accept a payroll element data message - just display it, for now - no longer used: see payeeDataMsg
-    var pentry = JSON.parse( message.body ).paymentLabel + " " + JSON.parse( message.body ).paymentAmount;
     $("#entries").append("<tr><td>" + pentry + "</td></tr>");
     $("#payrollentries").show();
 }
@@ -149,9 +142,10 @@ var msgs = { 'imminent': "Payroll generation imminent for department ",
 function showReply( message ) {
     $("#replies").append("<tr><td>" + message + "</td></tr>");
     var messageName = JSON.parse( message.body ).messageName;
+    var payload = JSON.parse( message.body ).payload;
     if ( messageName == "Notification" ) {
-        var msgident = JSON.parse( message.body ).ident;
-        var content = JSON.parse( message.body ).content;
+        var msgident = JSON.parse( payload ).Ident;
+        var content = JSON.parse( payload ).Content;
         vm.notification = msgs[ msgident ] + content;
         if ( msgident == "generated" ) {
             vm.AvailableDisabled = false;
@@ -163,15 +157,13 @@ function showReply( message ) {
             vm.SubmitDisabled = false;
         }
     } else if ( messageName == "PayrollAvailable" ) {
-           availablePayroll( message );
+           availablePayroll( payload );
     } else if ( messageName == "PayeeData" ) {
-           payeeDataMsg( message );
-    } else if ( messageName == "PayrollData" ) {
-           payrollDataMsg( message );
+           payeeDataMsg( payload );
     } else if ( messageName == "DataSent" ) {
-           var dataident = JSON.parse( message.body ).ident;
+           var dataident = JSON.parse( payload ).Ident;
            if ( dataident == "available" ) {
-               if ( JSON.parse( message.body ).count != "0" ) {
+               if ( JSON.parse( payload ).Count != "0" ) {
                    vm.PayrollRequestDisabled = false;
                }
            }   

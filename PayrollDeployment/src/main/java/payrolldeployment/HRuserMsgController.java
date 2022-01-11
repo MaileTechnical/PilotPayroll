@@ -35,6 +35,7 @@ import payrolldeployment.hruser.HRuserPayroll;             // HRuser-Payroll por
 import payrolldeployment.payrollmgmt.PayrollMgmtUSER;      // 
 import payrolldeployment.HRuser;                           // Shell component
 import interfaces.humanresources.NotificationMsg;
+
 import interfaces.humanresources.PayeeDataMsg;
 import interfaces.humanresources.DataSentMsg;
 import interfaces.humanresources.RetrievePayrollForReviewMsg;
@@ -49,6 +50,10 @@ import interfaces.humanresources.PayrollAvailableMsg;
 import payrolldeployment.hruser.clientdata.PaymentSet;
 import payrolldeployment.hruser.clientdata.impl.PaymentSetImpl;
 
+import payrolldeployment.SpringMsg;
+import payrolldeployment.PayrollMgmt;
+import payrolldeployment.payrollmgmt.PayrollMgmtUSER;
+
 // The Spring framework arranges for an instance of this class to be
 // created, passing an instance of SimpMessagingTemplate as an argument,
 // which enables messages to be sent to JavaScript clients.
@@ -56,19 +61,21 @@ import payrolldeployment.hruser.clientdata.impl.PaymentSetImpl;
 public class HRuserMsgController {
 	private static HRuserMsgController singleton;
 	
-	private SimpMessagingTemplate template;  
+	private SimpMessagingTemplate template;
+    public PayrollMgmtUSER Payroll;
 	
 	@Autowired
 	public HRuserMsgController( SimpMessagingTemplate template ) {
         singleton = this;
         this.template = template;
+  	    System.out.printf( "MsgController created \n");    			
 	}
 	
 	public static HRuserMsgController Singleton() {
 		return singleton;
 	}
 	
-    // Begin outgoing (from this component) messages.
+    // Begin messages directed to the xtUML application
     // Each of the following methods is invoked when the (JavaScript) client sends 
     // a message to the corresponding message-broker topic, "/app/<messageName>".
 
@@ -76,7 +83,8 @@ public class HRuserMsgController {
 	@MessageMapping( "/AvailablePayrolls" )
     public void AvailablePayrolls( AvailablePayrollsMsg message  ) throws Exception {
     	try {
-      	  HRuser.Singleton().Payroll().AvailablePayrolls();
+      	    System.out.printf( "Available payrolls in MsgController... \n" );
+      	    PayrollMgmtUSER.Singleton().AvailablePayrolls();
       	}
       	catch ( Exception e ) {
         	  System.out.printf( "Exception, %s, in AvailablePayrolls()\n", e );    			
@@ -86,7 +94,8 @@ public class HRuserMsgController {
 	@MessageMapping( "/RetrievePayrollForReview" )
     public void RetrievePayrollForReview( RetrievePayrollForReviewMsg message ) throws Exception {
     	try {
-      	  HRuser.Singleton().Payroll().RetrievePayrollForReview( message.getDepartment(), 
+      	    System.out.printf( "Retrieve payroll in MsgController...%s \n", message.getDepartment() );
+    		PayrollMgmtUSER.Singleton().RetrievePayrollForReview( message.getDepartment(), 
       			                                                 Boolean.parseBoolean( message.getHoldsOnly() ) );
       	}
       	catch ( Exception e ) {
@@ -97,7 +106,7 @@ public class HRuserMsgController {
     @MessageMapping( "/SubmitPayrollApproval" )
     public void SubmitPayrollApproval( SubmitPayrollApprovalMsg message ) throws Exception {
     	try {
-      	  HRuser.Singleton().Payroll().SubmitPayrollApproval( message.getDepartment() );
+    		PayrollMgmtUSER.Singleton().SubmitPayrollApproval( message.getDepartment() );
       	}
       	catch ( Exception e ) {
         	  System.out.printf( "Exception, %s, in SubmitPayrollApproval()\n", e );    			
@@ -107,7 +116,7 @@ public class HRuserMsgController {
     @MessageMapping( "/SubmitToFinance" )
     public void SubmitToFinance( SubmitToFinanceMsg message ) throws Exception {
     	try {
-      	  HRuser.Singleton().Payroll().SubmitToFinance( message.getDepartment() );
+    		PayrollMgmtUSER.Singleton().SubmitToFinance( message.getDepartment() );
       	}
       	catch ( Exception e ) {
         	  System.out.printf( "Exception, %s, in SubmitToFinance()\n", e );    			
@@ -117,7 +126,7 @@ public class HRuserMsgController {
     @MessageMapping( "/UpdatesSent" )
     public void UpdatesSent( UpdatesSentMsg message ) throws Exception {
     	try {
-      	  HRuser.Singleton().Payroll().UpdatesSent( message.getDepartment(),
+    		PayrollMgmtUSER.Singleton().UpdatesSent( message.getDepartment(),
       	                                            Integer.parseInt( message.getCount() ) );
       	}
       	catch ( Exception e ) {
@@ -128,7 +137,7 @@ public class HRuserMsgController {
     @MessageMapping( "/SubmitItemHold" )
     public void SubmitItemHold( SubmitItemHoldMsg message ) throws Exception {
     	try {
-      	  HRuser.Singleton().Payroll().SubmitItemHold( message.getDepartment(),
+      	  PayrollMgmtUSER.Singleton().SubmitItemHold( message.getDepartment(),
       			                                       Integer.parseInt( message.getEmployeeID() ),
       			                                       message.getPaymentLabel(),
       			                                       Boolean.parseBoolean( message.getHoldStatus() ) );
@@ -141,7 +150,7 @@ public class HRuserMsgController {
     @MessageMapping( "/SubmitItemApproval" )
     public void SubmitItemApproval( SubmitItemApprovalMsg message ) throws Exception {
     	try {
-      	  HRuser.Singleton().Payroll().SubmitItemApproval( message.getDepartment(),
+      	  PayrollMgmtUSER.Singleton().SubmitItemApproval( message.getDepartment(),
       			                                           Integer.parseInt( message.getEmployeeID() ),
       			                                           message.getPaymentLabel() );
       	}
@@ -191,4 +200,14 @@ public class HRuserMsgController {
     
     
      // End of incoming messages.
+
+
+    public void socketsend( IMessage msg ) throws XtumlException {
+    	
+    	String msgname = msg.getName();
+     	String payload = (String)msg.getParms().toString();
+    	SpringMsg springmsg = new SpringMsg ( msgname, payload );
+        String topic = "/topic/HRuser/";
+    	this.template.convertAndSend( topic, springmsg );
+    }
 }

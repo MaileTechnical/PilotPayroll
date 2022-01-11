@@ -54,8 +54,8 @@ public class PayrollDeploymentApplication implements IApplication {
         components[2] = new TestControl(this, executors[0], 2);
         components[0] = new HRuser(this, executors[0], 0);
         components[1] = new PayrollMgmt(this, executors[0], 1);
-        ((HRuser)components[0]).Payroll().satisfy(((PayrollMgmt)components[1]).USER());
-        ((PayrollMgmt)components[1]).USER().satisfy(((HRuser)components[0]).Payroll());
+//        ((HRuser)components[0]).Payroll().satisfy(((PayrollMgmt)components[1]).USER());
+//        ((PayrollMgmt)components[1]).USER().satisfy(((HRuser)components[0]).Payroll());
     }
 
     public TestControl TestControl() {
