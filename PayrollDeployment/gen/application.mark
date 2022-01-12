@@ -4,3 +4,4 @@ Components::PayrollMgmt,InitFunction,Component,CreatePEIs
 *,GenerateMessageClasses,Interface,ITestSupport
 *,GenerateMessageClasses,Interface,ITimeControl
 Interfaces::HumanResources,Serialize,Interface,Serialize
+Components::PayrollMgmt::USER,PortType,Port,SpringWebSocket

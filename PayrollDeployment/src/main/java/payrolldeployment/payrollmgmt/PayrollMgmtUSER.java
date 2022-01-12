@@ -24,9 +24,8 @@ import payrolldeployment.payrollmgmt.payrollmgmt.Payroll;
 import payrolldeployment.payrollmgmt.payrollmgmt.impl.DepartmentImpl;
 import payrolldeployment.payrollmgmt.payrollmgmt.impl.PayrollImpl;
 
-//import payrolldeployment.HRuserMsgController;
 import payrolldeployment.SpringMsg;
-import payrolldeployment.PayrollDeploymentApplication;
+//import payrolldeployment.PayrollDeploymentApplication;
 
 import org.json.JSONObject;
 
@@ -38,7 +37,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.HtmlUtils;
 
+
+import interfaces.humanresources.RetrievePayrollForReviewMsg;
+import interfaces.humanresources.SubmitItemHoldMsg;
+import interfaces.humanresources.SubmitItemApprovalMsg;
+import interfaces.humanresources.SubmitItemUpdateMsg;
+import interfaces.humanresources.SubmitPayHoldMsg;
+import interfaces.humanresources.SubmitPayApprovalMsg;
+import interfaces.humanresources.SubmitPayrollApprovalMsg;
+import interfaces.humanresources.SubmitToFinanceMsg;
+import interfaces.humanresources.UpdatesSentMsg;
 import interfaces.humanresources.AvailablePayrollsMsg;
+import interfaces.humanresources.AcceptedMsg;
+
 
 @Controller
 public class PayrollMgmtUSER extends Port<PayrollMgmt> implements IHumanResources {
@@ -63,19 +74,118 @@ public class PayrollMgmtUSER extends Port<PayrollMgmt> implements IHumanResource
    	    int value = 1/0;
    }
 
+
+    @Override
+	@MessageMapping( "/Accepted" )
+    public void Accepted( AcceptedMsg message  ) throws Exception {
+    }
+
+    @Override
+	@MessageMapping( "/AvailablePayrolls" )
+    public void AvailablePayrolls( AvailablePayrollsMsg message  ) throws Exception {
+    	try {
+      	    System.out.printf( "Available payrolls in MsgController... \n" );
+      	    AvailablePayrolls();
+      	}
+      	catch ( Exception e ) {
+        	  System.out.printf( "Exception, %s, in AvailablePayrolls()\n", e );    			
+      	}
+    }
+
+    @Override
+	@MessageMapping( "/RetrievePayrollForReview" )
+    public void RetrievePayrollForReview( RetrievePayrollForReviewMsg message ) throws Exception {
+    	try {
+      	    System.out.printf( "Retrieve payroll in MsgController...%s \n", message.getDepartment() );
+    		RetrievePayrollForReview( message.getDepartment(), 
+      			                                                 Boolean.parseBoolean( message.getHoldsOnly() ) );
+      	}
+      	catch ( Exception e ) {
+        	  System.out.printf( "Exception, %s, in RetrievePayrollForReview()\n", e );    			
+      	}
+    }
+    
+    @Override
+    @MessageMapping( "/SubmitPayrollApproval" )
+    public void SubmitPayrollApproval( SubmitPayrollApprovalMsg message ) throws Exception {
+    	try {
+    		SubmitPayrollApproval( message.getDepartment() );
+      	}
+      	catch ( Exception e ) {
+        	  System.out.printf( "Exception, %s, in SubmitPayrollApproval()\n", e );    			
+      	}
+    }
+
+    @Override
+    @MessageMapping( "/SubmitToFinance" )
+    public void SubmitToFinance( SubmitToFinanceMsg message ) throws Exception {
+    	try {
+    		SubmitToFinance( message.getDepartment() );
+      	}
+      	catch ( Exception e ) {
+        	  System.out.printf( "Exception, %s, in SubmitToFinance()\n", e );    			
+      	}
+    }
+
+    @Override
+    @MessageMapping( "/UpdatesSent" )
+    public void UpdatesSent( UpdatesSentMsg message ) throws Exception {
+    	try {
+    		UpdatesSent( message.getDepartment(),
+      	                                            Integer.parseInt( message.getCount() ) );
+      	}
+      	catch ( Exception e ) {
+        	  System.out.printf( "Exception, %s, in UpdatesSent()\n", e );    			
+      	}
+    }
+     
+    @Override
+    @MessageMapping( "/SubmitItemHold" )
+    public void SubmitItemHold( SubmitItemHoldMsg message ) throws Exception {
+    	try {
+      	  SubmitItemHold( message.getDepartment(),
+      			                                       Integer.parseInt( message.getEmployeeID() ),
+      			                                       message.getPaymentLabel(),
+      			                                       Boolean.parseBoolean( message.getHoldStatus() ) );
+      	}
+      	catch ( Exception e ) {
+        	  System.out.printf( "Exception, %s, in SubmitItemHold()\n", e );    			
+      	}
+    }
+
+    @Override
+    @MessageMapping( "/SubmitItemApproval" )
+    public void SubmitItemApproval( SubmitItemApprovalMsg message ) throws Exception {
+    	try {
+      	  SubmitItemApproval( message.getDepartment(),
+      			                                           Integer.parseInt( message.getEmployeeID() ),
+      			                                           message.getPaymentLabel() );
+      	}
+      	catch ( Exception e ) {
+        	  System.out.printf( "Exception, %s, in SubmitItemApproval()\n", e );    			
+      	}
+    }
+    
+    @Override
+    @MessageMapping( "/SubmitItemUpdate" )
+    public void SubmitItemUpdate( SubmitItemUpdateMsg message ) throws Exception {
+    }
+
+
+    @Override
+    @MessageMapping( "/SubmitPayApproval" )
+    public void SubmitPayApproval( SubmitPayApprovalMsg message ) throws Exception {
+    }
+
+    @Override
+    @MessageMapping( "/SubmitPayHold" )
+    public void SubmitPayHold( SubmitPayHoldMsg message ) throws Exception {
+    }
+
+   
+    
     // inbound messages
     public void SubmitItemApproval( final String p_Department,  final int p_EmployeeID,  final String p_PaymentLabel ) throws XtumlException {
-
-        Department dept = context().Department_instances().anyWhere(selected -> StringUtil.equality(((Department)selected).getName(), p_Department));
-        if ( !dept.isEmpty() ) {
-            Payroll payroll = dept.R34_has_under_review_Payroll();
-            if ( !payroll.isEmpty() ) {
-                payroll.ApproveItem( p_EmployeeID, p_PaymentLabel );
-            }
-            else {
-                context().LOG().LogFailure( "Payroll not found when updating item approval" );
-            }
-        }
     }
 
     public void SubmitPayApproval( final String p_Department,  final int p_EmployeeID,  final String p_PaymentLabel,  final double p_PaymentAmount ) throws XtumlException {
@@ -209,39 +319,6 @@ public class PayrollMgmtUSER extends Port<PayrollMgmt> implements IHumanResource
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IHumanResources.SIGNAL_NO_SUBMITITEMAPPROVAL:
-                SubmitItemApproval(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
-                break;
-            case IHumanResources.SIGNAL_NO_SUBMITPAYAPPROVAL:
-                SubmitPayApproval(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), RealUtil.deserialize(message.get(3)));
-                break;
-            case IHumanResources.SIGNAL_NO_UPDATESSENT:
-                UpdatesSent(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)));
-                break;
-            case IHumanResources.SIGNAL_NO_SUBMITITEMHOLD:
-                SubmitItemHold(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), BooleanUtil.deserialize(message.get(3)));
-                break;
-            case IHumanResources.SIGNAL_NO_ACCEPTED:
-                Accepted(StringUtil.deserialize(message.get(0)));
-                break;
-            case IHumanResources.SIGNAL_NO_RETRIEVEPAYROLLFORREVIEW:
-                RetrievePayrollForReview(StringUtil.deserialize(message.get(0)), BooleanUtil.deserialize(message.get(1)));
-                break;
-            case IHumanResources.SIGNAL_NO_SUBMITITEMUPDATE:
-                SubmitItemUpdate(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), RealUtil.deserialize(message.get(3)));
-                break;
-            case IHumanResources.SIGNAL_NO_AVAILABLEPAYROLLS:
-//                AvailablePayrolls();
-                break;
-            case IHumanResources.SIGNAL_NO_SUBMITPAYROLLAPPROVAL:
-                SubmitPayrollApproval(StringUtil.deserialize(message.get(0)));
-                break;
-            case IHumanResources.SIGNAL_NO_SUBMITPAYHOLD:
-                SubmitPayHold(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), RealUtil.deserialize(message.get(3)));
-                break;
-            case IHumanResources.SIGNAL_NO_SUBMITTOFINANCE:
-                SubmitToFinance(StringUtil.deserialize(message.get(0)));
-                break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );
         }

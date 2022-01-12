@@ -1,7 +1,6 @@
 package payrolldeployment;
 
 
-import payrolldeployment.HRuser;
 import payrolldeployment.PayrollMgmt;
 import payrolldeployment.TestControl;
 
@@ -27,7 +26,7 @@ public class PayrollDeploymentApplication implements IApplication {
     private ApplicationExecutor[] executors;
 
     public PayrollDeploymentApplication() {
-        components = new IComponent<?>[3];
+        components = new IComponent<?>[2];
         executors = new ApplicationExecutor[1];
         singleton = this;
         setup( null, null );
@@ -51,21 +50,15 @@ public class PayrollDeploymentApplication implements IApplication {
                 executors[i] = new ApplicationExecutor( "PayrollDeploymentApplicationExecutor" + i, args );
             }
         }
-        components[2] = new TestControl(this, executors[0], 2);
-        components[0] = new HRuser(this, executors[0], 0);
-        components[1] = new PayrollMgmt(this, executors[0], 1);
-//        ((HRuser)components[0]).Payroll().satisfy(((PayrollMgmt)components[1]).USER());
-//        ((PayrollMgmt)components[1]).USER().satisfy(((HRuser)components[0]).Payroll());
+        components[1] = new TestControl(this, executors[0], 2);
+        components[0] = new PayrollMgmt(this, executors[0], 1);
     }
 
     public TestControl TestControl() {
-        return (TestControl)components[2];
-    }
-    public HRuser HRuser() {
-        return (HRuser)components[0];
+        return (TestControl)components[1];
     }
     public PayrollMgmt PayrollMgmt() {
-        return (PayrollMgmt)components[1];
+        return (PayrollMgmt)components[0];
     }
 
     @Override

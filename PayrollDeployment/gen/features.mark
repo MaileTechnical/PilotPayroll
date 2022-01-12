@@ -19,3 +19,4 @@ Port,BaseClass
 Port,HttpEndpoint
 Interface,Serialize
 Interface,GenerateMessageClasses
+Port,PortType
