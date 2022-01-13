@@ -118,7 +118,7 @@ INSERT INTO GD_GE
 	"1bb6d97f-bbef-42c8-84d9-1f00cfb070a9",
 	94,
 	0,
-	'TestControl::Components::TestControl::Port1::TimeControl');
+	'TestControl::Components::TestControl::TimeMgmt::TimeControl');
 INSERT INTO GD_CON
 	VALUES ("035607d6-55ae-46cb-a8eb-6ba7e9ad902f",
 	"00000000-0000-0000-0000-000000000000");
@@ -222,7 +222,7 @@ INSERT INTO DIM_DIA
 INSERT INTO C_PO
 	VALUES ("9f46e187-2347-4224-953f-6e8de652cde6",
 	"60212e59-6987-4c4c-830f-1ce4487b2b4d",
-	'Port1',
+	'TimeMgmt',
 	0,
 	0,
 	'');
@@ -236,7 +236,7 @@ INSERT INTO C_P
 	'TimeControl',
 	'Unnamed Interface',
 	'',
-	'TestControl::Port1::TimeControl');
+	'TestControl::TimeMgmt::TimeControl');
 INSERT INTO SPR_PEP
 	VALUES ("53ef6543-c2fe-402e-b03c-84911314ef62",
 	"427c17b5-f911-496e-ac28-5454a93292fd",
@@ -245,8 +245,8 @@ INSERT INTO SPR_PS
 	VALUES ("53ef6543-c2fe-402e-b03c-84911314ef62",
 	'AdvanceTime',
 	'',
-	'',
-	3,
+	'toss = TimeUtilities::AdvanceTime( hours:param.hours, minutes:param.minutes );',
+	1,
 	0,
 	1);
 INSERT INTO C_EP_PROXY
@@ -265,8 +265,8 @@ INSERT INTO SPR_PS
 	VALUES ("816f9ced-e6d0-436a-a4f8-d09af16416d6",
 	'SetTime',
 	'',
-	'',
-	3,
+	'toss = TIM::set_time( day:param.day, hour:param.hour, microsecond:0, minute:param.minute, month:param.month, second:0, year:param.year );',
+	1,
 	0,
 	2);
 INSERT INTO C_EP_PROXY
