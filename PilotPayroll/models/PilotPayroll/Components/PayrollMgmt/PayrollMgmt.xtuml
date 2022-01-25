@@ -42,11 +42,11 @@ INSERT INTO GD_SHP
 INSERT INTO GD_CTR
 	VALUES ("2bd49b98-b523-4394-a532-9845347466ee");
 INSERT INTO DIM_ND
-	VALUES (2572.000000,
-	800.000000,
+	VALUES (1043.000000,
+	462.000000,
 	"2bd49b98-b523-4394-a532-9845347466ee");
 INSERT INTO DIM_GE
-	VALUES (4100.000000,
+	VALUES (5629.000000,
 	3100.000000,
 	"2bd49b98-b523-4394-a532-9845347466ee",
 	"00000000-0000-0000-0000-000000000000");
@@ -57,17 +57,22 @@ INSERT INTO DIM_ELE
 INSERT INTO DIM_CON
 	VALUES ("54cf8c06-557d-482d-9f8b-cced788f4cb8",
 	6672.000000,
-	3672.000000,
+	3359.000000,
 	"2bd49b98-b523-4394-a532-9845347466ee");
 INSERT INTO DIM_CON
 	VALUES ("bcab440d-e36b-42a0-9dda-88e9545e934f",
-	5315.000000,
-	3900.000000,
+	5902.000000,
+	3562.000000,
 	"2bd49b98-b523-4394-a532-9845347466ee");
 INSERT INTO DIM_CON
 	VALUES ("e6f29e5c-5165-4447-a722-a97ba120dd0b",
-	6225.000000,
-	3900.000000,
+	6228.000000,
+	3562.000000,
+	"2bd49b98-b523-4394-a532-9845347466ee");
+INSERT INTO DIM_CON
+	VALUES ("fba516b5-16bb-4468-a578-1cc1adb66c53",
+	5842.000000,
+	3562.000000,
 	"2bd49b98-b523-4394-a532-9845347466ee");
 INSERT INTO GD_GE
 	VALUES ("12022b9d-cb63-4736-9e2a-861fa90163a6",
@@ -85,8 +90,8 @@ INSERT INTO DIM_ND
 	150.000000,
 	"12022b9d-cb63-4736-9e2a-861fa90163a6");
 INSERT INTO DIM_GE
-	VALUES (4920.000000,
-	3100.000000,
+	VALUES (5792.000000,
+	3300.000000,
 	"12022b9d-cb63-4736-9e2a-861fa90163a6",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -109,8 +114,8 @@ INSERT INTO DIM_ND
 	150.000000,
 	"4537bfdf-1b61-4b05-996b-10de4374fa6c");
 INSERT INTO DIM_GE
-	VALUES (5140.000000,
-	3100.000000,
+	VALUES (6012.000000,
+	3300.000000,
 	"4537bfdf-1b61-4b05-996b-10de4374fa6c",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -133,8 +138,8 @@ INSERT INTO DIM_ND
 	150.000000,
 	"aa7e64c2-e8ea-4b70-9615-2a91803f314c");
 INSERT INTO DIM_GE
-	VALUES (5360.000000,
-	3100.000000,
+	VALUES (6232.000000,
+	3300.000000,
 	"aa7e64c2-e8ea-4b70-9615-2a91803f314c",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -229,8 +234,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"6723c3a7-26c4-4480-af0a-aa6c94ada18a");
 INSERT INTO DIM_GE
-	VALUES (6663.000000,
-	3632.000000,
+	VALUES (6757.000000,
+	3305.000000,
 	"6723c3a7-26c4-4480-af0a-aa6c94ada18a",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -265,14 +270,14 @@ INSERT INTO GD_LS
 INSERT INTO DIM_WAY
 	VALUES ("1d145705-0ae2-4b0b-a84e-d9dd687a0d55",
 	6672.000000,
-	3672.000000,
+	3359.000000,
 	"3a9ee748-3325-4c12-9037-48b9f1296cf1",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("4aa47a5b-bac3-4cea-bb68-e3878d13d8e1",
-	6747.000000,
-	3672.000000,
+	6946.000000,
+	3359.000000,
 	"3a9ee748-3325-4c12-9037-48b9f1296cf1",
 	"00000000-0000-0000-0000-000000000000",
 	"1d145705-0ae2-4b0b-a84e-d9dd687a0d55");
@@ -314,106 +319,6 @@ INSERT INTO DIM_ELE
 	0,
 	"2bd49b98-b523-4394-a532-9845347466ee");
 INSERT INTO GD_GE
-	VALUES ("faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	"b1b5332c-17f8-47a0-984e-26330c487971",
-	"3292a579-0515-41b4-b314-8ead46e6b1b1",
-	94,
-	0,
-	'PilotPayroll::Components::PayrollMgmt::TEST::TestSupport');
-INSERT INTO GD_CON
-	VALUES ("faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("a44d69d9-ee93-40ff-b5bf-90ec445ee3bc",
-	"faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	0,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (0.000000,
-	0.000000,
-	"a44d69d9-ee93-40ff-b5bf-90ec445ee3bc");
-INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
-	"a44d69d9-ee93-40ff-b5bf-90ec445ee3bc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("a44d69d9-ee93-40ff-b5bf-90ec445ee3bc",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("2c066c7c-fd5b-4ecd-a2e3-579592c650a4",
-	"faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	2,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (0.000000,
-	0.000000,
-	"2c066c7c-fd5b-4ecd-a2e3-579592c650a4");
-INSERT INTO DIM_GE
-	VALUES (5189.000000,
-	3958.000000,
-	"2c066c7c-fd5b-4ecd-a2e3-579592c650a4",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("2c066c7c-fd5b-4ecd-a2e3-579592c650a4",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("b6b7afdb-01de-40df-b1c8-aed4f74ae81f",
-	"faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	1,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (0.000000,
-	0.000000,
-	"b6b7afdb-01de-40df-b1c8-aed4f74ae81f");
-INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
-	"b6b7afdb-01de-40df-b1c8-aed4f74ae81f",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("b6b7afdb-01de-40df-b1c8-aed4f74ae81f",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_LS
-	VALUES ("b09cf8df-64af-461d-ba0f-8eca9db507fb",
-	"faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	"00000000-0000-0000-0000-000000000000",
-	"ab7286ae-86aa-49dc-a2d7-4b138195d10e",
-	"e8b0ac3f-3484-4855-93a3-1f62ea352798");
-INSERT INTO DIM_WAY
-	VALUES ("ab7286ae-86aa-49dc-a2d7-4b138195d10e",
-	5315.000000,
-	3900.000000,
-	"faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_WAY
-	VALUES ("e8b0ac3f-3484-4855-93a3-1f62ea352798",
-	5315.000000,
-	4030.000000,
-	"faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	"00000000-0000-0000-0000-000000000000",
-	"ab7286ae-86aa-49dc-a2d7-4b138195d10e");
-INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
-	"faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ED
-	VALUES ("bcab440d-e36b-42a0-9dda-88e9545e934f",
-	"00000000-0000-0000-0000-000000000000",
-	"faf7098a-f7ea-47bf-8e1d-4fdeb148e1bc");
-INSERT INTO GD_GE
 	VALUES ("d380095d-0c2c-4284-b0b1-2a64f34840ff",
 	"b1b5332c-17f8-47a0-984e-26330c487971",
 	"bbd6ec8f-f7d6-4a6b-9ace-4a818e22c483",
@@ -438,105 +343,105 @@ INSERT INTO DIM_ELE
 	0,
 	"2bd49b98-b523-4394-a532-9845347466ee");
 INSERT INTO GD_GE
-	VALUES ("5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	"b1b5332c-17f8-47a0-984e-26330c487971",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0",
+	"8ad7aa97-6246-451a-8219-ac324e7b6796",
 	93,
 	0,
-	'PilotPayroll::Components::PayrollMgmt::CHECK::HumanResources');
+	'PilotPayroll::Components::PayrollMgmt::TEST::TestSupport');
 INSERT INTO GD_CON
-	VALUES ("5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("67ea3b99-3c25-4225-8d85-0bb35c7f0c43",
-	"5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("e52600f4-7731-486b-9737-ec87a95d68a6",
+	"2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	0,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"67ea3b99-3c25-4225-8d85-0bb35c7f0c43");
+	"e52600f4-7731-486b-9737-ec87a95d68a6");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"67ea3b99-3c25-4225-8d85-0bb35c7f0c43",
+	"e52600f4-7731-486b-9737-ec87a95d68a6",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("67ea3b99-3c25-4225-8d85-0bb35c7f0c43",
+	VALUES ("e52600f4-7731-486b-9737-ec87a95d68a6",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("7f163a4d-2906-4adb-85d6-954bded14c6e",
-	"5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("58c74657-0883-4937-b55b-61e17ff58d6c",
+	"2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	2,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"7f163a4d-2906-4adb-85d6-954bded14c6e");
+	"58c74657-0883-4937-b55b-61e17ff58d6c");
 INSERT INTO DIM_GE
-	VALUES (6072.000000,
-	3963.000000,
-	"7f163a4d-2906-4adb-85d6-954bded14c6e",
+	VALUES (5689.000000,
+	3620.000000,
+	"58c74657-0883-4937-b55b-61e17ff58d6c",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("7f163a4d-2906-4adb-85d6-954bded14c6e",
+	VALUES ("58c74657-0883-4937-b55b-61e17ff58d6c",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("fb43fdb3-d124-4378-b6b4-9250b42d6c06",
-	"5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("15aeb3f5-63ad-43a9-b6c5-faa9cc44dd61",
+	"2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	1,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"fb43fdb3-d124-4378-b6b4-9250b42d6c06");
+	"15aeb3f5-63ad-43a9-b6c5-faa9cc44dd61");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"fb43fdb3-d124-4378-b6b4-9250b42d6c06",
+	"15aeb3f5-63ad-43a9-b6c5-faa9cc44dd61",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("fb43fdb3-d124-4378-b6b4-9250b42d6c06",
+	VALUES ("15aeb3f5-63ad-43a9-b6c5-faa9cc44dd61",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_LS
-	VALUES ("c7c40d68-9998-476a-aed2-bff8f82a0d94",
-	"5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("91ad3877-4b39-43fe-8efb-f22e658a5072",
+	"2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	"00000000-0000-0000-0000-000000000000",
-	"4aef3881-64d8-4a44-8c14-b2b71ff55bab",
-	"f39aed02-f562-4512-9b32-7fe116252d41");
+	"1f063596-31c5-45e1-93b6-cefac1573386",
+	"401235f2-17fe-4ed5-b215-97db4dc57533");
 INSERT INTO DIM_WAY
-	VALUES ("4aef3881-64d8-4a44-8c14-b2b71ff55bab",
-	6225.000000,
-	3900.000000,
-	"5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("1f063596-31c5-45e1-93b6-cefac1573386",
+	5842.000000,
+	3562.000000,
+	"2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
-	VALUES ("f39aed02-f562-4512-9b32-7fe116252d41",
-	6225.000000,
-	4042.000000,
-	"5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("401235f2-17fe-4ed5-b215-97db4dc57533",
+	5842.000000,
+	3695.000000,
+	"2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	"00000000-0000-0000-0000-000000000000",
-	"4aef3881-64d8-4a44-8c14-b2b71ff55bab");
+	"1f063596-31c5-45e1-93b6-cefac1573386");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"5bef604c-7109-4966-a84b-3fbfec9947fe",
+	"2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("5bef604c-7109-4966-a84b-3fbfec9947fe",
+	VALUES ("2eafbdb5-cb59-4490-9047-4224742cbcd9",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ED
-	VALUES ("e6f29e5c-5165-4447-a722-a97ba120dd0b",
+	VALUES ("fba516b5-16bb-4468-a578-1cc1adb66c53",
 	"00000000-0000-0000-0000-000000000000",
-	"5bef604c-7109-4966-a84b-3fbfec9947fe");
+	"2eafbdb5-cb59-4490-9047-4224742cbcd9");
 INSERT INTO DIM_DIA
 	VALUES ("b1b5332c-17f8-47a0-984e-26330c487971",
 	'',
@@ -958,29 +863,29 @@ INSERT INTO C_I_PROXY
 	'',
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO C_PO
-	VALUES ("7c3fc6af-84ea-4a2c-8e50-f6e001b65453",
+	VALUES ("e375425b-6d39-4c18-90d7-9d24ed9567a8",
 	"7c6d191c-1502-4f72-9055-2069e5f671e6",
 	'TEST',
 	0,
 	0,
 	'');
 INSERT INTO C_IR
-	VALUES ("3292a579-0515-41b4-b314-8ead46e6b1b1",
+	VALUES ("8ad7aa97-6246-451a-8219-ac324e7b6796",
 	"21fbab59-853a-47c8-8d2a-8eb0722f711c",
 	"00000000-0000-0000-0000-000000000000",
-	"7c3fc6af-84ea-4a2c-8e50-f6e001b65453");
-INSERT INTO C_P
-	VALUES ("3292a579-0515-41b4-b314-8ead46e6b1b1",
-	'TestSupport',
+	"e375425b-6d39-4c18-90d7-9d24ed9567a8");
+INSERT INTO C_R
+	VALUES ("8ad7aa97-6246-451a-8219-ac324e7b6796",
 	'TestSupport',
 	'',
+	'Unnamed Interface',
 	'PayrollMgmt::TEST::TestSupport');
-INSERT INTO SPR_PEP
-	VALUES ("908b1be9-40ae-4e3e-8ecc-ee5829c6f983",
+INSERT INTO SPR_REP
+	VALUES ("5b4ef3af-a0b3-4396-bf42-6dfe9375c55e",
 	"61af314c-605b-4abd-adf2-8f6d09aeb759",
-	"3292a579-0515-41b4-b314-8ead46e6b1b1");
-INSERT INTO SPR_PS
-	VALUES ("908b1be9-40ae-4e3e-8ecc-ee5829c6f983",
+	"8ad7aa97-6246-451a-8219-ac324e7b6796");
+INSERT INTO SPR_RS
+	VALUES ("5b4ef3af-a0b3-4396-bf42-6dfe9375c55e",
 	'Initialize',
 	'',
 	'LOG::LogInfo( message:"Payroll::TestSupport::Initialize()" );
@@ -997,16 +902,16 @@ INSERT INTO C_EP_PROXY
 	'',
 	0,
 	'../../Interfaces/TestSupport/TestSupport.xtuml');
-INSERT INTO SPR_PEP
-	VALUES ("69bba201-7497-411b-9bbe-4bd2b1f4ac43",
+INSERT INTO SPR_REP
+	VALUES ("1940f8db-fe70-4092-988e-26ab75aab8e7",
 	"fabcaa82-3b97-411c-b1bf-17a14b574e6b",
-	"3292a579-0515-41b4-b314-8ead46e6b1b1");
-INSERT INTO SPR_PS
-	VALUES ("69bba201-7497-411b-9bbe-4bd2b1f4ac43",
+	"8ad7aa97-6246-451a-8219-ac324e7b6796");
+INSERT INTO SPR_RS
+	VALUES ("1940f8db-fe70-4092-988e-26ab75aab8e7",
 	'InitializationComplete',
 	'',
 	'',
-	1,
+	3,
 	0,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1023,218 +928,6 @@ INSERT INTO C_I_PROXY
 	'TestSupport',
 	'Supports sequencing of initialization between application and testbench.',
 	'../../Interfaces/TestSupport/TestSupport.xtuml');
-INSERT INTO C_PO
-	VALUES ("46a02c08-3aaa-480b-931d-5d18ed965516",
-	"7c6d191c-1502-4f72-9055-2069e5f671e6",
-	'CHECK',
-	0,
-	0,
-	'');
-INSERT INTO C_IR
-	VALUES ("cefa5557-05f6-4002-a9a0-1c06655e70c0",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	"00000000-0000-0000-0000-000000000000",
-	"46a02c08-3aaa-480b-931d-5d18ed965516");
-INSERT INTO C_R
-	VALUES ("cefa5557-05f6-4002-a9a0-1c06655e70c0",
-	'HumanResources',
-	'',
-	'Unnamed Interface',
-	'PayrollMgmt::CHECK::HumanResources');
-INSERT INTO SPR_REP
-	VALUES ("f86c439e-bf89-43cd-9ae9-09e9c831242f",
-	"1ba55bd7-0e2e-4583-86b6-7e4ec6170539",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("f86c439e-bf89-43cd-9ae9-09e9c831242f",
-	'RetrievePayrollForReview',
-	'Request from client to get department payroll data for review.
-Some reviewers request only those items with on-hold status.
-',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("385064a9-7d71-4e9a-b3d0-df5f2f6eecf1",
-	"4d9c995d-41df-4210-b324-bacfc13385c6",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("385064a9-7d71-4e9a-b3d0-df5f2f6eecf1",
-	'SubmitItemUpdate',
-	'Update a payment element amount for an employee on a department payroll.
-Not used for preliminary Use Cases.
-',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("a1246e6a-418c-469e-a85b-913b2190b5d1",
-	"629926c0-e851-45a1-a84c-1776a2a7cba6",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("a1246e6a-418c-469e-a85b-913b2190b5d1",
-	'SubmitItemApproval',
-	'Approve a payment element for an employee on a department payroll.
-Preliminary Use Cases only approve hold status.
-',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("7e270f46-5b5e-49f0-b6d2-8bb8c039875b",
-	"bb2c26a6-cd84-4b87-8bb5-ed5924eab856",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("7e270f46-5b5e-49f0-b6d2-8bb8c039875b",
-	'SubmitItemHold',
-	'Update the on-hold status of a payment element for an employee on a department payroll.
-
-',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("a77d0507-5e54-4d29-a767-b6a283ad2f3f",
-	"f143ad52-738b-43d7-a3a2-d79376361797",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("a77d0507-5e54-4d29-a767-b6a283ad2f3f",
-	'SubmitPayHold',
-	'Client submits an on-hold status for the entire payment for an employee in a department.
-Not used for preliminary Use Cases.
-',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("0f27d73b-5110-4c33-a8bf-3961802851e5",
-	"5ddc2f40-c598-4724-b9e2-e763f4901ac4",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("0f27d73b-5110-4c33-a8bf-3961802851e5",
-	'SubmitPayApproval',
-	'Signal approval of the entire payment for an employee in a department.
-Not used for preliminary Use Cases.
-',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("65bf577f-3ce9-4161-9d0c-fb22242871c9",
-	"0f25438a-f717-4b80-b06c-9ce0f1c905c4",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("65bf577f-3ce9-4161-9d0c-fb22242871c9",
-	'Notification',
-	'Notify a client of some occurrence.',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("230d16bf-cfab-414a-a545-958def14890e",
-	"180cc4e4-f88e-432c-8950-48095a2171f1",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("230d16bf-cfab-414a-a545-958def14890e",
-	'SubmitPayrollApproval',
-	'Signal that the payroll for a department has been approved by a client user.',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("5dc286f8-f381-4bc9-a85b-9f78e2caaf67",
-	"cd89f044-8052-4bd7-828a-07b3030804fc",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("5dc286f8-f381-4bc9-a85b-9f78e2caaf67",
-	'SubmitToFinance',
-	'Signal that client user wishes to submit finally reviewed payroll to Finance for payment.',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("ff4897f1-b6c4-46fd-af65-aedca4f786b2",
-	"dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("ff4897f1-b6c4-46fd-af65-aedca4f786b2",
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("5abce67a-61b4-4317-a05e-819d812809b4",
-	"79e0cec4-ae5c-4386-bba6-8e0cbd7b5655",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("5abce67a-61b4-4317-a05e-819d812809b4",
-	'DataSent',
-	'Signal that all of multi-part data stream requested has been sent to6the requesting client.',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("33e20d8d-32ce-4b1e-97d0-6d3045a1e3a9",
-	"4977673c-bec5-4608-b2c5-3676282e237e",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("33e20d8d-32ce-4b1e-97d0-6d3045a1e3a9",
-	'UpdatesSent',
-	'Signal that all payroll updates for a department have been submitted by client.',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("891a0014-1669-452e-8fe5-ba2949398bd0",
-	"ff9b6c68-ccf3-4e51-ba31-b1ad9d4ee0af",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("891a0014-1669-452e-8fe5-ba2949398bd0",
-	'PayeeData',
-	'Details of an employee on a payroll requested for review.',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("dc60a292-dfb3-4556-aad8-011a37800662",
-	"e4c136c3-a15a-4c1d-a50d-388ef28a61ba",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("dc60a292-dfb3-4556-aad8-011a37800662",
-	'AvailablePayrolls',
-	'A request for those departments with a payroll currently available for review.',
-	'',
-	3,
-	0,
-	0);
-INSERT INTO SPR_REP
-	VALUES ("e4f8180a-8180-4769-8e46-c9b3cd962d2a",
-	"4d16c31d-6243-441a-8a49-f1f48cf4331d",
-	"cefa5557-05f6-4002-a9a0-1c06655e70c0");
-INSERT INTO SPR_RS
-	VALUES ("e4f8180a-8180-4769-8e46-c9b3cd962d2a",
-	'PayrollAvailable',
-	'Data specifying a department which has a payroll available for review.',
-	'',
-	3,
-	0,
-	0);
 INSERT INTO PE_PE
 	VALUES ("7c6d191c-1502-4f72-9055-2069e5f671e6",
 	1,

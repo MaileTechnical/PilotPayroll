@@ -1,14 +1,11 @@
 *,RootPackage,*,PayrollDeployment::PayrollDeployment
 Components::PayrollMgmt,InitFunction,Component,CreatePEIs
-*,GenerateMessageClasses,Interface,IHumanResources
-*,GenerateMessageClasses,Interface,ITestSupport
-*,GenerateMessageClasses,Interface,ITimeControl
 Interfaces::HumanResources,Serialize,Interface,Serialize
 Components::PayrollMgmt::USER,PortType,Port,SpringWebSocket
+Components::PayrollMgmt::TEST,PortType,Port,SpringWebSocket
 Interfaces::TimeControl,Serialize,Interface,Serialize
 Components::TestControl::TimeMgmt,PortType,Port,SpringWebSocket
-*,GenerateMessageClasses,Interface,ICheckReq
 Components::PayrollMgmt::USER,SubscribeTopic,Port,HRuser
 Components::PayrollMgmt::USER,EndPoint,Port,PilotPayroll
-Components::PayrollMgmt::CHECK,EndPoint,Port,NotUsed
+Components::PayrollMgmt::TEST,EndPoint,Port,TestConnection
 *,ApplicationNature,*,SpringApplication
