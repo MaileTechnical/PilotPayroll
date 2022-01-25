@@ -7,3 +7,8 @@ Interfaces::HumanResources,Serialize,Interface,Serialize
 Components::PayrollMgmt::USER,PortType,Port,SpringWebSocket
 Interfaces::TimeControl,Serialize,Interface,Serialize
 Components::TestControl::TimeMgmt,PortType,Port,SpringWebSocket
+*,GenerateMessageClasses,Interface,ICheckReq
+Components::PayrollMgmt::USER,SubscribeTopic,Port,HRuser
+Components::PayrollMgmt::USER,EndPoint,Port,PilotPayroll
+Components::PayrollMgmt::CHECK,EndPoint,Port,NotUsed
+*,ApplicationNature,*,SpringApplication
