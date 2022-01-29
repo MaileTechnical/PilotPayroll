@@ -87,6 +87,7 @@ for each employee in employees
    employee_count = employee_count + 1;
 end for;
 send USER::DataSent( Ident:"payroll", Count:employee_count );
+send USER::Notification( Ident:"delivered", Content:"review" );
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,

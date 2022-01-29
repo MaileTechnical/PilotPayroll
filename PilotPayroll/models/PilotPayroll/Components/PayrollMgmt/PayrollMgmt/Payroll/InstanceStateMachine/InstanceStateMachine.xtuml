@@ -719,17 +719,10 @@ INSERT INTO SM_ACT
 	VALUES ("1c10176f-bbe6-456b-8c57-70e72c511dde",
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
-	'// This is temporary:
-// End payroll scheduler lifecycle here because there is, currently, no Finance component involved.
-
-select one dept related by self->Department[R34.''is being reviewed for''];
-unrelate self from dept across R34.''is being reviewed for'';
-relate self to dept across R24.''has been generated for'';
-
-select one scheduler related by self->PayPeriod[R33.''is for'']
-                                    ->PayrollScheduleEntry[R32.''specifies dates for''];
-generate PayrollScheduleEntry3:Complete() to scheduler;  
+	'select one dept related by self->Department[R34.''is being reviewed for''];
 send USER::Notification( Ident:"submitted", Content:dept.Name );
+select one period related by self->PayPeriod[R33];
+send FIN::SubmitPayroll( Department:dept.Name, PayPeriodStart:period.Start, From:"Payroll" );
                                   ',
 	'',
 	0);
@@ -745,6 +738,8 @@ INSERT INTO SM_ACT
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
 	'select one dept related by self->Department[R34.''is being reviewed for''];
+send USER::Notification( Ident:"accepted", Content:dept.Name );
+
 unrelate self from dept across R34.''is being reviewed for'';
 relate self to dept across R24.''has been generated for'';
 
@@ -843,7 +838,8 @@ INSERT INTO SM_ACT
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
 	'select one dept related by self->Department[R34.''is being reviewed for''];
-send USER::Notification( Ident:"approved", Content:dept.Name );',
+send USER::Notification( Ident:"approved", Content:dept.Name );
+',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -900,7 +896,8 @@ INSERT INTO SM_ACT
 	VALUES ("e13e5775-8c19-4bf5-b20e-300551367964",
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
-	'self.AssessForApproval();',
+	'LOG::LogInfo( message:"About to assess for approval" );
+self.AssessForApproval();',
 	'',
 	0);
 INSERT INTO GD_MD

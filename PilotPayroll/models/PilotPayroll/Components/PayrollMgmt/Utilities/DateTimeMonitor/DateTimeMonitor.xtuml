@@ -18,6 +18,7 @@ INSERT INTO O_TFR
 if ( param.DateTime > now )
   self.Event = param.ClientEvent;
   self.Expiration = param.DateTime;
+  LOG::LogInfo( message:"Starting Countdown Timer" );
   create event instance tick of DateTimeMonitor1:Tick() to self;
   self.BaseTimer = TIM::timer_start_recurring( event_inst:tick, 
                                                microseconds:ConversionFactors::MicrosecondsPerMinute );
@@ -58,7 +59,9 @@ INSERT INTO O_TFR
 	'Stop this countdown timer.',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
-	'self.ignore_tick = not TIM::timer_cancel( timer_inst_ref:self.BaseTimer );',
+	'LOG::LogInfo( message:"Cancelling Countdown Timer" );
+self.ignore_tick = not TIM::timer_cancel( timer_inst_ref:self.BaseTimer );
+',
 	1,
 	'',
 	"c55169f8-82cc-49a5-bed0-b96352cfbf55",

@@ -53,6 +53,9 @@ function connect() {
         stompClient.subscribe('/topic/HRuser/', function (message) {
             showReply( message );
         });
+        stompClient.subscribe('/queue/errors', function (response) {
+            console.log( response );
+        });
     });
 }
 
@@ -81,6 +84,9 @@ function sendRetrievePayrollForReview() {
 }
 
 function sendSubmitPayrollApproval() {
+    vm.AvailableDisabled = true;
+    vm.UpdateDisabled = true;
+    vm.ApproveDisabled = true;
     stompClient.send( "/app/SubmitPayrollApproval", {}, 
       JSON.stringify( {'department': $("#department").val()} ) );
       $("#payrollentries").hide();
@@ -133,10 +139,12 @@ function payeeDataMsg( payload ) {
 var msgs = { 'imminent': "Payroll generation imminent for department ",
 		     'generating': "Draft payroll being generated for department ",
 		     'generated': "Draft payroll has been generated for department ",
+		     'delivered': "Payroll has been delivered for ",
 		     'reviewed': "Payroll has been reviewed for department ",
 		     'unapproved': "Payroll has NOT been approved for department ",
 		     'approved': "Payroll has been approved for department ",
 		     'submitted': "Payroll has been submitted for department ",
+		     'accepted': "Payroll has been accepted by Finance ",
              'overdue': "Payroll submission overdue for department " };
 
 function showReply( message ) {
@@ -155,6 +163,12 @@ function showReply( message ) {
             vm.UpdateDisabled = true;
             vm.ApproveDisabled = true;
             vm.SubmitDisabled = false;
+        }
+        if ( msgident == "unapproved" ) {
+            vm.AvailableDisabled = false;
+            vm.UpdateDisabled = false;
+            vm.ApproveDisabled = false;
+            vm.SubmitDisabled = true;
         }
     } else if ( messageName == "PayrollAvailable" ) {
            availablePayroll( payload );

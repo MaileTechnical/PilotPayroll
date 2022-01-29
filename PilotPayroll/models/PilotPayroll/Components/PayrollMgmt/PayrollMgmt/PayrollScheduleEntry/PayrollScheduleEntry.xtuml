@@ -17,7 +17,7 @@ INSERT INTO O_TFR
 	'// Ask monitor to wake me up when the time comes...
 create event instance notify of PayrollScheduleEntry1:Notify() to self;
 create object instance monitor of DateTimeMonitor;
-self.MyMonitor = monitor;
+self.myMonitor = monitor;
 monitor.Start( ClientEvent:notify, DateTime:self.NotificationDate );
 ',
 	1,
@@ -46,32 +46,6 @@ origin: start of epoch',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
-	VALUES ("103a06f0-44f3-45a8-990d-75e5d2d484f4",
-	"ae8be100-bccd-49d5-b79b-bfa58285b46a");
-INSERT INTO O_BATTR
-	VALUES ("103a06f0-44f3-45a8-990d-75e5d2d484f4",
-	"ae8be100-bccd-49d5-b79b-bfa58285b46a");
-INSERT INTO O_ATTR
-	VALUES ("103a06f0-44f3-45a8-990d-75e5d2d484f4",
-	"ae8be100-bccd-49d5-b79b-bfa58285b46a",
-	"cf849d5b-5dc5-4944-810b-7dcb667eb30d",
-	'MyMonitor',
-	'A timer to sequence Payroll scheduling timeline.
-',
-	'',
-	'MyMonitor',
-	0,
-	"71e40277-9bda-4b05-813e-120b85a617de",
-	'',
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("71e40277-9bda-4b05-813e-120b85a617de",
-	"00000000-0000-0000-0000-000000000000",
-	'inst_ref<DateTimeMonitor>',
-	'',
-	'',
-	'../../Utilities/Utilities.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("552aa4d7-a665-42fd-bbc9-a41dee9abb4b",
 	"ae8be100-bccd-49d5-b79b-bfa58285b46a");
@@ -102,7 +76,7 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("8e4192db-bce9-40cf-b9ec-1100ec6a6c78",
 	"ae8be100-bccd-49d5-b79b-bfa58285b46a",
-	"103a06f0-44f3-45a8-990d-75e5d2d484f4",
+	"d57ad007-a9d6-435d-90d8-0ea30a482c6c",
 	'current_state',
 	'',
 	'',
@@ -132,6 +106,31 @@ origin: start of epoch',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("d57ad007-a9d6-435d-90d8-0ea30a482c6c",
+	"ae8be100-bccd-49d5-b79b-bfa58285b46a");
+INSERT INTO O_BATTR
+	VALUES ("d57ad007-a9d6-435d-90d8-0ea30a482c6c",
+	"ae8be100-bccd-49d5-b79b-bfa58285b46a");
+INSERT INTO O_ATTR
+	VALUES ("d57ad007-a9d6-435d-90d8-0ea30a482c6c",
+	"ae8be100-bccd-49d5-b79b-bfa58285b46a",
+	"cf849d5b-5dc5-4944-810b-7dcb667eb30d",
+	'myMonitor',
+	'Using an instance reference avoids explicit association with a general purpose class.',
+	'',
+	'myMonitor',
+	0,
+	"71e40277-9bda-4b05-813e-120b85a617de",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("71e40277-9bda-4b05-813e-120b85a617de",
+	"00000000-0000-0000-0000-000000000000",
+	'inst_ref<DateTimeMonitor>',
+	'',
+	'',
+	'../../Utilities/Utilities.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"ae8be100-bccd-49d5-b79b-bfa58285b46a");

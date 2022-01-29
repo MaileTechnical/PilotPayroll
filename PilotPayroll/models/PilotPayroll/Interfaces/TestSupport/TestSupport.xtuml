@@ -16,7 +16,7 @@ INSERT INTO C_AS
 	VALUES ("61af314c-605b-4abd-adf2-8f6d09aeb759",
 	'Initialize',
 	'',
-	1,
+	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO C_EP
 	VALUES ("fabcaa82-3b97-411c-b1bf-17a14b574e6b",
@@ -29,7 +29,7 @@ INSERT INTO C_AS
 	VALUES ("fabcaa82-3b97-411c-b1bf-17a14b574e6b",
 	'InitializationComplete',
 	'',
-	0,
+	1,
 	"61af314c-605b-4abd-adf2-8f6d09aeb759");
 INSERT INTO PE_PE
 	VALUES ("21fbab59-853a-47c8-8d2a-8eb0722f711c",
