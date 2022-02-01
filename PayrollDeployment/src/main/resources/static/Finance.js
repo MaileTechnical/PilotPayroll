@@ -37,12 +37,12 @@ function setConnected(connected) {
 // When connecting, subscribe to a topic to receive
 // messages sent from the server.
 function connect() {
-    var socket = new SockJS('/PayrollDeploymentApplication_PayrollMgmtFIN-websocket');
+    var socket = new SockJS('/PayrollFinance-websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/PayrollMgmtFIN/Payroll', function (message) {
+        stompClient.subscribe('/topic/PayrollFinance/Payroll', function (message) {
             showReply( message );
         });
     });
