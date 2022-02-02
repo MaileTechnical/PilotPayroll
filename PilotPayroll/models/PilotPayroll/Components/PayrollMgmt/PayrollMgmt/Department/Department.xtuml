@@ -236,6 +236,39 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO O_TFR
+	VALUES ("8df5dc60-5a7c-4c5f-80d1-e63415e7fc20",
+	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718",
+	'PayrollUpdate',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any dept from instances of Department
+ where ( selected.Name == param.Name );
+if ( not_empty dept )
+  select one payroll related by dept->Payroll[R34.''has under review''];
+  if ( not_empty payroll )
+  	generate Payroll7:Reviewed() to payroll;
+  else
+  	LOG::LogFailure( message:"No payroll being reviewed for Department " + param.Name );
+  end if;
+else
+  LOG::LogFailure( message:"No Department matches " + param.Name );
+end if;',
+	1,
+	'',
+	"04039c21-24ec-4661-b98d-2f2cf1a46999",
+	0,
+	1);
+INSERT INTO O_TPARM
+	VALUES ("0092cdc1-15b8-4861-9e70-6517b619ec7f",
+	"8df5dc60-5a7c-4c5f-80d1-e63415e7fc20",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("513f29de-fb71-4c67-94c4-597fb15c8256",
 	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718");

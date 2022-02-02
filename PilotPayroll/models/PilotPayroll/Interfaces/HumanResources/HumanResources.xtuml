@@ -225,24 +225,6 @@ INSERT INTO C_PP
 	0,
 	'',
 	"2850d7a6-03f3-4803-aea7-27e081024439");
-INSERT INTO C_PP
-	VALUES ("15387e74-9382-4697-8a78-4dd74a542f54",
-	"f143ad52-738b-43d7-a3a2-d79376361797",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'PaymentLabel',
-	'',
-	0,
-	'',
-	"4d7fb34e-c275-4156-9efe-122af1e21ff0");
-INSERT INTO C_PP
-	VALUES ("65a27ca2-12ee-480c-81e2-2c219306cefe",
-	"f143ad52-738b-43d7-a3a2-d79376361797",
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'PaymentAmount',
-	'',
-	0,
-	'',
-	"15387e74-9382-4697-8a78-4dd74a542f54");
 INSERT INTO C_EP
 	VALUES ("5ddc2f40-c598-4724-b9e2-e763f4901ac4",
 	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
@@ -278,24 +260,6 @@ INSERT INTO C_PP
 	0,
 	'',
 	"1e1b7950-6958-4793-880d-774c22f52066");
-INSERT INTO C_PP
-	VALUES ("a4e8d6b2-b24f-4754-861e-93619fc48d52",
-	"5ddc2f40-c598-4724-b9e2-e763f4901ac4",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'PaymentLabel',
-	'',
-	0,
-	'',
-	"285a5245-d533-47ee-8de4-fe203bfc6088");
-INSERT INTO C_PP
-	VALUES ("8fc739ae-6460-4e16-a880-bf8c2bb43e7e",
-	"5ddc2f40-c598-4724-b9e2-e763f4901ac4",
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'PaymentAmount',
-	'',
-	0,
-	'',
-	"a4e8d6b2-b24f-4754-861e-93619fc48d52");
 INSERT INTO C_EP
 	VALUES ("0f25438a-f717-4b80-b06c-9ce0f1c905c4",
 	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
@@ -372,32 +336,6 @@ INSERT INTO C_PP
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO C_EP
-	VALUES ("dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	-1,
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	0);
-INSERT INTO C_AS
-	VALUES ("dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	0,
-	"cd89f044-8052-4bd7-828a-07b3030804fc");
-INSERT INTO C_PP
-	VALUES ("0ddb0d31-6f60-48dd-9148-5985ee8200b6",
-	"dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'Department',
-	'',
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_EP
 	VALUES ("79e0cec4-ae5c-4386-bba6-8e0cbd7b5655",
 	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
 	-1,
@@ -409,7 +347,7 @@ INSERT INTO C_AS
 	'DataSent',
 	'Signal that all of multi-part data stream requested has been sent to6the requesting client.',
 	1,
-	"dce7039f-aa29-4ba4-af47-7258d8fb7941");
+	"cd89f044-8052-4bd7-828a-07b3030804fc");
 INSERT INTO C_PP
 	VALUES ("904bbd7d-dcf9-4ddb-9a85-0f5b32aac4c5",
 	"79e0cec4-ae5c-4386-bba6-8e0cbd7b5655",

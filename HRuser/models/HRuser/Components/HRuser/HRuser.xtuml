@@ -437,30 +437,6 @@ INSERT INTO C_EP_PROXY
 	0,
 	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("93126707-c668-4bbd-bf82-009a4d5e22cb",
-	"dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"b9266a99-419d-4977-a5b3-f0a7f6342582");
-INSERT INTO SPR_RS
-	VALUES ("93126707-c668-4bbd-bf82-009a4d5e22cb",
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	'',
-	1,
-	0,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	-1,
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	0,
-	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("a8369463-92b9-4e97-a929-16d73d212fdf",
 	"79e0cec4-ae5c-4386-bba6-8e0cbd7b5655",
 	"b9266a99-419d-4977-a5b3-f0a7f6342582");

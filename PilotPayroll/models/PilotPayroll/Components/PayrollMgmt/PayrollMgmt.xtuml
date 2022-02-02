@@ -576,10 +576,8 @@ select any dept from instances of Department
  where ( selected.Name == param.Department );
 select one payroll related by dept->Payroll[R34.''has under review''];
 if ( not_empty dept )
-  LOG::LogInfo( message:"Generate Payroll5 Accept Port Activity" );
   generate Payroll5:Accept() to payroll;
 end if;
-LOG::LogInfo( message:"Accept Payroll Port Activity complete" );
 ',
 	1,
 	0,
@@ -704,24 +702,7 @@ INSERT INTO SPR_PS
 	VALUES ("8185cb14-1495-4f74-aba2-96daf97f3cbf",
 	'UpdatesSent',
 	'Signal that all payroll updates for a department have been submitted by client.',
-	'// Attempt to reflect ''reviewed'' status to User Interface.
-LOG::LogInfo( message:"Reviewed Payroll Port Activity" );
-
-select any dept from instances of Department
- where ( selected.Name == param.Department );
-if ( not_empty dept )
-  select one payroll related by dept->Payroll[R34.''has under review''];
-  if ( not_empty payroll )
-    LOG::LogInfo( message:"Generate Payroll7 Reviewed inPort Activity" );
-    generate Payroll7:Reviewed() to payroll; 	                                      
-  else
-    LOG::LogFailure( message:"Payroll not found when updating payroll review status" );
-  end if;
-else
-  LOG::LogFailure( message:"Department not found when updating payroll review status" );
-end if;
-LOG::LogInfo( message:"Reviewed Payroll Port Activity complete" );
-',
+	'Department::PayrollUpdate( Name:param.Department );',
 	1,
 	0,
 	0);
@@ -751,30 +732,6 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'DataSent',
 	'Signal that all of multi-part data stream requested has been sent to6the requesting client.',
-	0,
-	'../../Interfaces/HumanResources/HumanResources.xtuml');
-INSERT INTO SPR_PEP
-	VALUES ("2e4fa06e-2fb2-48b4-bd9c-8dca953ad57a",
-	"dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"8673d1a5-e3c1-4890-a8c6-d82bc89731e7");
-INSERT INTO SPR_PS
-	VALUES ("2e4fa06e-2fb2-48b4-bd9c-8dca953ad57a",
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	'',
-	1,
-	0,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	-1,
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
 	0,
 	'../../Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_PEP
@@ -1036,7 +993,7 @@ INSERT INTO SPR_PS
 	'InitializationComplete',
 	'',
 	'',
-	3,
+	1,
 	0,
 	0);
 INSERT INTO C_EP_PROXY
