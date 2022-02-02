@@ -33,6 +33,12 @@ The markings demonstrate:
 - A message-specific means of refining interest subscription.
 
 Each browser client is configured by a pair of static resources: a .html layoout and a .js animation script.
+
+Note:
+Not all of the functions of the model have been implemented. This originated as a proof-of-concept and was worked only 
+as far as needed to demostrate capability. It was developed against a subset of Use Cases provided in a design.
+The browser client GUIs are not elaborated to support the complete published interfaces and some of the interface 
+activities are empty.
 ',
 	0);
 INSERT INTO GD_MD
