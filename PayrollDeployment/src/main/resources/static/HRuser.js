@@ -53,9 +53,6 @@ function connect() {
         stompClient.subscribe('/topic/HRuser/', function (message) {
             showReply( message );
         });
-        stompClient.subscribe('/queue/errors', function (response) {
-            console.log( response );
-        });
     });
 }
 
