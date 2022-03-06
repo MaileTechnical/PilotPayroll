@@ -50,7 +50,7 @@ function connect() {
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/HRuser/', function (message) {
+        stompClient.subscribe('/topic/HRuser', function (message) {
             showReply( message );
         });
     });

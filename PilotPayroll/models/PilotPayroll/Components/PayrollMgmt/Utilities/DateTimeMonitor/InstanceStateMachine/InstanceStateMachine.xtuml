@@ -129,7 +129,6 @@ INSERT INTO SM_ACT
 else
   // every elapsed minute, check for expiration
   now = TIM::current_seconds();
-  LOG::LogInteger( message:self.Expiration );
   if ( self.Expiration <= now )
     generate self.Event;
     self.Cancel();

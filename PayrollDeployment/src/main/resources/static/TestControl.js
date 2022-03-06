@@ -25,7 +25,7 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/TestControl', function (reply) {
-            showReply(JSON.parse(reply.body).content);
+            showReply(message);
         });
     });
 }

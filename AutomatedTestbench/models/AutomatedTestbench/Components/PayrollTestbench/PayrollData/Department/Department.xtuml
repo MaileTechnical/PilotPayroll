@@ -30,8 +30,8 @@ if ( not_empty updates )
                                   EmployeeID:payee.EmployeeID, 
                                   PaymentLabel:payment.label, 
                                   HoldStatus: payment.onhold );
+    count = count + 1;
   end for;
-  count = count + 1;
 end if;
 return count;',
 	1,
@@ -86,8 +86,8 @@ if ( not_empty updates )
     send TESTAPP::SubmitItemApproval( Department:dept.Name, 
                                       EmployeeID:payee.EmployeeID, 
                                       PaymentLabel:payment.label );
+    count = count + 1;
   end for;
-  count = count + 1;
 end if;
 return count;',
 	1,

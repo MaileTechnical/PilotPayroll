@@ -18,7 +18,6 @@ INSERT INTO O_TFR
 if ( param.DateTime > now )
   self.Event = param.ClientEvent;
   self.Expiration = param.DateTime;
-  LOG::LogInfo( message:"Starting Countdown Timer" );
   create event instance tick of DateTimeMonitor1:Tick() to self;
   self.BaseTimer = TIM::timer_start_recurring( event_inst:tick, 
                                                microseconds:ConversionFactors::MicrosecondsPerMinute );
