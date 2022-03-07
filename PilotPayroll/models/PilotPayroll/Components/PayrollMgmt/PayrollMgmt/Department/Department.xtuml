@@ -7,6 +7,268 @@ INSERT INTO O_OBJ
 	'Department',
 	'A grouping of employees with a defined responsibility. An organization may have multiple departments.',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("15e08545-84f2-4817-bb3c-f9d537fa3d25",
+	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718",
+	'SendPayroll',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any dept from instances of Department
+ where ( selected.Name == param.Name );
+if ( not_empty dept )
+  select one payroll related by dept->Payroll[R34.''has under review''];
+  if ( not_empty payroll )
+  	payroll.SendPayrollForReview( HoldsOnly:param.HoldsOnly );
+  else
+  	LOG::LogFailure( message:"No payroll found for Department " + param.Name );
+  end if;
+else
+  LOG::LogFailure( message:"No Department matches " + param.Name );
+end if;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	1);
+INSERT INTO O_TPARM
+	VALUES ("29562c13-e2cb-4e49-b2fa-6add3f739f8a",
+	"15e08545-84f2-4817-bb3c-f9d537fa3d25",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("66b14a07-3bc3-4800-b200-329f83ba30e0",
+	"15e08545-84f2-4817-bb3c-f9d537fa3d25",
+	'HoldsOnly',
+	"ba5eda7a-def5-0000-0000-000000000001",
+	0,
+	'',
+	"29562c13-e2cb-4e49-b2fa-6add3f739f8a",
+	'');
+INSERT INTO O_TFR
+	VALUES ("9da626a6-cba2-4d73-a5ea-02135a896406",
+	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718",
+	'ApprovePayrollItem',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'// Find the payroll under review; approve the submitted item.
+select any dept from instances of Department
+ where ( selected.Name == param.Name );
+if ( not_empty dept )
+  select one payroll related by dept->Payroll[R34.''has under review''];
+  if ( not_empty payroll )
+  	payroll.ApproveItem( ID:param.EmployeeID, Label:param.ItemLabel );
+  else
+    LOG::LogFailure( message:"Payroll not found when updating item approval" );
+  end if;
+else
+  LOG::LogFailure( message:"No Department matches " + param.Name );
+end if;',
+	1,
+	'',
+	"15e08545-84f2-4817-bb3c-f9d537fa3d25",
+	0,
+	2);
+INSERT INTO O_TPARM
+	VALUES ("8916a3ce-83ad-4271-bc70-211e6b72e615",
+	"9da626a6-cba2-4d73-a5ea-02135a896406",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("380d2bc0-2223-467a-8251-16819c9954ec",
+	"9da626a6-cba2-4d73-a5ea-02135a896406",
+	'EmployeeID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"8916a3ce-83ad-4271-bc70-211e6b72e615",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("e6d73714-5f9f-48df-9711-444e6cba0064",
+	"9da626a6-cba2-4d73-a5ea-02135a896406",
+	'ItemLabel',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"380d2bc0-2223-467a-8251-16819c9954ec",
+	'');
+INSERT INTO O_TFR
+	VALUES ("6399b2e9-ad8a-4414-bf2a-eca9aa4bf526",
+	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718",
+	'SetPayrollItemHold',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'// Find the payroll being reviewed; update the hold status (on/off) of the submitted item.
+select any dept from instances of Department
+ where ( selected.Name == param.Name );
+if ( not_empty dept )
+  select one payroll related by dept->Payroll[R34.''has under review''];
+  if ( not_empty payroll )
+  	payroll.UpdateItemHold( ID:param.EmployeeID, Label:param.ItemLabel, Hold:param.Hold );
+  else
+    LOG::LogFailure( message:"Payroll not found when updating item hold status" );
+  end if;
+else
+  LOG::LogFailure( message:"No Department matches " + param.Name );
+end if;',
+	1,
+	'',
+	"9da626a6-cba2-4d73-a5ea-02135a896406",
+	0,
+	2);
+INSERT INTO O_TPARM
+	VALUES ("247303c3-6876-41ac-80a7-2c1b6bd7f8af",
+	"6399b2e9-ad8a-4414-bf2a-eca9aa4bf526",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("9976953e-2344-4841-88fc-9e1b407c9347",
+	"6399b2e9-ad8a-4414-bf2a-eca9aa4bf526",
+	'EmployeeID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"247303c3-6876-41ac-80a7-2c1b6bd7f8af",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("1ba25ec1-9784-4c66-9f42-23b5fffae40e",
+	"6399b2e9-ad8a-4414-bf2a-eca9aa4bf526",
+	'ItemLabel',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"9976953e-2344-4841-88fc-9e1b407c9347",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("983300bd-eb18-45a5-b1b9-5937563e2b48",
+	"6399b2e9-ad8a-4414-bf2a-eca9aa4bf526",
+	'Hold',
+	"ba5eda7a-def5-0000-0000-000000000001",
+	0,
+	'',
+	"1ba25ec1-9784-4c66-9f42-23b5fffae40e",
+	'');
+INSERT INTO O_TFR
+	VALUES ("485428a6-4c2a-4b11-be44-05fc9536beb4",
+	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718",
+	'PayrollApprove',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any dept from instances of Department
+ where ( selected.Name == param.Name );
+if ( not_empty dept )
+  select one payroll related by dept->Payroll[R34.''has under review''];
+  if ( not_empty payroll )
+  	if ( payroll.Assess() )
+  	  generate Payroll3:Approved() to payroll;
+  	else
+  	  send USER::Notification( Ident:"unapproved", Content:dept.Name );
+    end if;
+  else
+  	LOG::LogFailure( message:"No payroll found for Department " + param.Name );
+  end if;
+else
+  LOG::LogFailure( message:"No Department matches " + param.Name );
+end if;',
+	1,
+	'',
+	"6399b2e9-ad8a-4414-bf2a-eca9aa4bf526",
+	0,
+	1);
+INSERT INTO O_TPARM
+	VALUES ("e5f06882-9330-4295-9263-9d5c7cd13e9b",
+	"485428a6-4c2a-4b11-be44-05fc9536beb4",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("04039c21-24ec-4661-b98d-2f2cf1a46999",
+	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718",
+	'PayrollSubmit',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any dept from instances of Department
+ where ( selected.Name == param.Name );
+if ( not_empty dept )
+  select one payroll related by dept->Payroll[R34.''has under review''];
+  if ( not_empty payroll )
+  	if ( payroll.Assess() )
+  	  generate Payroll6:Submit() to payroll;
+  	else
+  	  send USER::Notification( Ident:"unapproved", Content:dept.Name );
+    end if;
+  else
+  	LOG::LogFailure( message:"No payroll found for Department " + param.Name );
+  end if;
+else
+  LOG::LogFailure( message:"No Department matches " + param.Name );
+end if;',
+	1,
+	'',
+	"485428a6-4c2a-4b11-be44-05fc9536beb4",
+	0,
+	1);
+INSERT INTO O_TPARM
+	VALUES ("5f588a34-6720-4ac1-97c4-13a2abd94b36",
+	"04039c21-24ec-4661-b98d-2f2cf1a46999",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("8df5dc60-5a7c-4c5f-80d1-e63415e7fc20",
+	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718",
+	'PayrollUpdate',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any dept from instances of Department
+ where ( selected.Name == param.Name );
+if ( not_empty dept )
+  select one payroll related by dept->Payroll[R34.''has under review''];
+  if ( not_empty payroll )
+  	generate Payroll7:Reviewed() to payroll;
+  else
+  	LOG::LogFailure( message:"No payroll being reviewed for Department " + param.Name );
+  end if;
+else
+  LOG::LogFailure( message:"No Department matches " + param.Name );
+end if;',
+	1,
+	'',
+	"04039c21-24ec-4661-b98d-2f2cf1a46999",
+	0,
+	1);
+INSERT INTO O_TPARM
+	VALUES ("0092cdc1-15b8-4861-9e70-6517b619ec7f",
+	"8df5dc60-5a7c-4c5f-80d1-e63415e7fc20",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("513f29de-fb71-4c67-94c4-597fb15c8256",
 	"140d4f3a-e48f-4d68-b31f-4a30bcdc4718");

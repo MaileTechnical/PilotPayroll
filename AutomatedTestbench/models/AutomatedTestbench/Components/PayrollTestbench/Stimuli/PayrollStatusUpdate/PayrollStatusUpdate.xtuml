@@ -103,10 +103,6 @@ if ( self.newstatus == "Clear" )
   dept.ClearElements();
 end if;
 
-if ( self.newstatus == "Accept" ) // This should really be sent from Finance.
-  send TESTAPP::Accepted( Department:dept.Name );
-end if;
-
 select one stimulus related by self->Stimulus[R300];
 stimulus.Complete();
 ',

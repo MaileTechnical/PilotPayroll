@@ -1,2 +1,11 @@
 *,RootPackage,*,PayrollDeployment::PayrollDeployment
 Components::PayrollMgmt,InitFunction,Component,CreatePEIs
+Components::PayrollMgmt::USER,PortType,Port,SpringWebSocket
+Components::PayrollMgmt::USER,SubscribeTopic,Port,HRuser
+Components::PayrollMgmt::USER,EndPoint,Port,PilotPayroll
+Components::TestControl::TimeMgmt,PortType,Port,SpringWebSocket
+Components::TestControl::TimeMgmt,EndPoint,Port,TimeWarp
+Components::PayrollMgmt::FIN,PortType,Port,SpringWebSocket
+Components::PayrollMgmt::FIN,EndPoint,Port,PayrollFinance
+Components::PayrollMgmt::FIN,SubTopicParameter,Port,From
+*,ApplicationNature,*,SpringApplication

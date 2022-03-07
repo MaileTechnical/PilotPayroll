@@ -286,12 +286,6 @@ INSERT INTO SM_SEME
 	"d510a572-a386-4ca3-b490-b1b7a7edeb78",
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("f1bbffdd-0d3a-4594-9d15-e042c97258e2",
-	"66518364-7845-4b22-953d-d24d810904e7",
-	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
-	"00000000-0000-0000-0000-000000000000",
-	'');
 INSERT INTO SM_SEME
 	VALUES ("f1bbffdd-0d3a-4594-9d15-e042c97258e2",
 	"66518364-7845-4b22-953d-d24d810904e7",
@@ -302,6 +296,12 @@ INSERT INTO SM_SEME
 	"2b191f4a-355c-4aec-918c-8acfafb434af",
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("f1bbffdd-0d3a-4594-9d15-e042c97258e2",
+	"1b15b25a-986c-40df-ad38-cc80eb666271",
+	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO SM_SEME
 	VALUES ("f1bbffdd-0d3a-4594-9d15-e042c97258e2",
 	"1b15b25a-986c-40df-ad38-cc80eb666271",
@@ -666,7 +666,7 @@ INSERT INTO SM_NSTXN
 	VALUES ("8279d263-a606-4537-af93-6c86211973ad",
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	"f1bbffdd-0d3a-4594-9d15-e042c97258e2",
-	"1b15b25a-986c-40df-ad38-cc80eb666271",
+	"66518364-7845-4b22-953d-d24d810904e7",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("8279d263-a606-4537-af93-6c86211973ad",
@@ -719,17 +719,10 @@ INSERT INTO SM_ACT
 	VALUES ("1c10176f-bbe6-456b-8c57-70e72c511dde",
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
-	'// This is temporary:
-// End payroll scheduler lifecycle here because there is, currently, no Finance component involved.
-
-select one dept related by self->Department[R34.''is being reviewed for''];
-unrelate self from dept across R34.''is being reviewed for'';
-relate self to dept across R24.''has been generated for'';
-
-select one scheduler related by self->PayPeriod[R33.''is for'']
-                                    ->PayrollScheduleEntry[R32.''specifies dates for''];
-generate PayrollScheduleEntry3:Complete() to scheduler;  
+	'select one dept related by self->Department[R34.''is being reviewed for''];
 send USER::Notification( Ident:"submitted", Content:dept.Name );
+select one period related by self->PayPeriod[R33];
+send FIN::SubmitPayroll( Department:dept.Name, PayPeriodStart:period.Start, From:"Payroll" );
                                   ',
 	'',
 	0);
@@ -745,6 +738,8 @@ INSERT INTO SM_ACT
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
 	'select one dept related by self->Department[R34.''is being reviewed for''];
+send USER::Notification( Ident:"accepted", Content:dept.Name );
+
 unrelate self from dept across R34.''is being reviewed for'';
 relate self to dept across R24.''has been generated for'';
 
@@ -843,7 +838,8 @@ INSERT INTO SM_ACT
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
 	'select one dept related by self->Department[R34.''is being reviewed for''];
-send USER::Notification( Ident:"approved", Content:dept.Name );',
+send USER::Notification( Ident:"approved", Content:dept.Name );
+',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -900,7 +896,8 @@ INSERT INTO SM_ACT
 	VALUES ("e13e5775-8c19-4bf5-b20e-300551367964",
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
-	'self.AssessForApproval();',
+	'LOG::LogFailure( message:"Payroll has not yet been approved" );
+send USER::Notification( Ident:"unapproved", Content:"for submission" );',
 	'',
 	0);
 INSERT INTO GD_MD
@@ -935,7 +932,7 @@ INSERT INTO GD_NCS
 	VALUES ("f9f865c1-4b20-45b1-9f90-9ef03059fa66");
 INSERT INTO DIM_ND
 	VALUES (200.000000,
-	150.000000,
+	177.000000,
 	"f9f865c1-4b20-45b1-9f90-9ef03059fa66");
 INSERT INTO DIM_GE
 	VALUES (4297.000000,
@@ -964,7 +961,7 @@ INSERT INTO DIM_CON
 INSERT INTO DIM_CON
 	VALUES ("69ca9e74-b4cf-4815-ba2e-be870b39c96b",
 	4497.000000,
-	3203.000000,
+	3226.000000,
 	"f9f865c1-4b20-45b1-9f90-9ef03059fa66");
 INSERT INTO GD_GE
 	VALUES ("835b1680-c4a3-492b-9537-18087728d6ac",
@@ -998,7 +995,7 @@ INSERT INTO DIM_CON
 INSERT INTO DIM_CON
 	VALUES ("298dde34-78e6-4300-9bf5-d8ef5e1102eb",
 	4680.000000,
-	3203.000000,
+	3226.000000,
 	"835b1680-c4a3-492b-9537-18087728d6ac");
 INSERT INTO DIM_CON
 	VALUES ("6f090b89-0296-4d78-866f-a178d1248368",
@@ -1023,7 +1020,7 @@ INSERT INTO DIM_CON
 INSERT INTO DIM_CON
 	VALUES ("10f127c4-51ea-44ee-83f5-2649451b55cb",
 	4880.000000,
-	3215.000000,
+	3203.000000,
 	"835b1680-c4a3-492b-9537-18087728d6ac");
 INSERT INTO DIM_CON
 	VALUES ("f95ce163-66f8-4de1-bcef-9bd0b30224a9",
@@ -1039,6 +1036,16 @@ INSERT INTO DIM_CON
 	VALUES ("9e4641d7-88cd-4c22-8b60-bdfbb8ce5f91",
 	4800.000000,
 	3317.000000,
+	"835b1680-c4a3-492b-9537-18087728d6ac");
+INSERT INTO DIM_CON
+	VALUES ("afa4ad5c-097e-44b0-8369-f924aa894e55",
+	4678.000000,
+	3191.000000,
+	"835b1680-c4a3-492b-9537-18087728d6ac");
+INSERT INTO DIM_CON
+	VALUES ("e112c239-921f-4ddf-99d9-979e072ca153",
+	4712.000000,
+	3167.000000,
 	"835b1680-c4a3-492b-9537-18087728d6ac");
 INSERT INTO GD_GE
 	VALUES ("5121b135-1a6c-4e62-8b97-ec237a56a867",
@@ -1297,8 +1304,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"602ab1e4-efc0-4b4b-aa52-d5ceb71b7a59");
 INSERT INTO DIM_GE
-	VALUES (4540.000000,
-	3236.000000,
+	VALUES (4519.000000,
+	3239.000000,
 	"602ab1e4-efc0-4b4b-aa52-d5ceb71b7a59",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -1397,8 +1404,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"6fce237d-dcdf-41e4-92e5-a942697d2c2b");
 INSERT INTO DIM_GE
-	VALUES (4539.000000,
-	3163.000000,
+	VALUES (4513.000000,
+	3191.000000,
 	"6fce237d-dcdf-41e4-92e5-a942697d2c2b",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -1433,14 +1440,14 @@ INSERT INTO GD_LS
 INSERT INTO DIM_WAY
 	VALUES ("5f6fd609-b4aa-4391-a25c-f6a0f09e96d9",
 	4497.000000,
-	3203.000000,
+	3226.000000,
 	"dc327c68-063f-4ebd-8c3f-41b29892ebfa",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("fd893ba1-7a5b-42d9-9b70-3240fd0ccc52",
 	4680.000000,
-	3203.000000,
+	3226.000000,
 	"dc327c68-063f-4ebd-8c3f-41b29892ebfa",
 	"00000000-0000-0000-0000-000000000000",
 	"5f6fd609-b4aa-4391-a25c-f6a0f09e96d9");
@@ -2008,7 +2015,7 @@ INSERT INTO GD_LS
 INSERT INTO DIM_WAY
 	VALUES ("e10e01fe-1094-4b99-8b27-d47e289a9d51",
 	4880.000000,
-	3215.000000,
+	3203.000000,
 	"b33543ce-6487-4ccc-bc6c-16967d076ee5",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
@@ -2022,7 +2029,7 @@ INSERT INTO DIM_WAY
 INSERT INTO DIM_WAY
 	VALUES ("e38e1b33-fd35-43a3-9ec8-17f96fa9f32d",
 	4930.000000,
-	3215.000000,
+	3203.000000,
 	"b33543ce-6487-4ccc-bc6c-16967d076ee5",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
@@ -2059,7 +2066,7 @@ INSERT INTO GD_GE
 	"8279d263-a606-4537-af93-6c86211973ad",
 	42,
 	0,
-	'PilotPayroll::Components::PayrollMgmt::PayrollMgmt::Payroll::Instance State Machine::Being Reviewed::Payroll8: Approve');
+	'PilotPayroll::Components::PayrollMgmt::PayrollMgmt::Payroll::Instance State Machine::Being Reviewed::Payroll6: Submit');
 INSERT INTO GD_CON
 	VALUES ("5077813a-25e7-4274-a6de-043948ff6916",
 	"00000000-0000-0000-0000-000000000000");

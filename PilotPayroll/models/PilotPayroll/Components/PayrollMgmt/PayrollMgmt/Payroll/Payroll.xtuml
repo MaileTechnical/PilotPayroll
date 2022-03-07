@@ -61,45 +61,21 @@ end for;',
 INSERT INTO O_TFR
 	VALUES ("e96b22b1-1d1b-4f8b-b903-28e6cf7b8860",
 	"082d7012-4ccd-4f69-8aac-c0d1f9d5d21c",
-	'AssessForApproval',
+	'Assess',
 	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
+	"ba5eda7a-def5-0000-0000-000000000001",
 	1,
 	'// If there are still unapproved items, a payroll cannot be approved.
 
-select one dept related by self->Department[R34.''is being reviewed for''];
 select any unapproved related by self->EmployeePaymentElement[R35.''has unapproved''];
 if ( not_empty unapproved )
-  LOG::LogInfo( message:"Payroll for department " + dept.Name + " has unapproved elements!" );
-  send USER::Notification( Ident:"unapproved", Content:dept.Name );
+  return false;
 else
-  generate Payroll3:Approved() to self;
+  return true;
 end if;',
 	1,
 	'',
 	"2c9eb5ac-e7ea-4426-b9e6-013bcb269166",
-	0,
-	0);
-INSERT INTO O_TFR
-	VALUES ("f0138969-611f-456f-8810-ac882a357505",
-	"082d7012-4ccd-4f69-8aac-c0d1f9d5d21c",
-	'AssessForSubmittal',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	1,
-	'// If there are any unapproved items, a payroll may not be submitted to Finance.
-
-select one dept related by self->Department[R34.''is being reviewed for''];
-select any unapproved related by self->EmployeePaymentElement[R35.''has unapproved''];
-if ( not_empty unapproved )
-  LOG::LogFailure( message:"Unable to submit payroll for department " + dept.Name );
-  return;
-end if;
-generate Payroll6:Submit() to self;
-',
-	1,
-	'',
-	"e96b22b1-1d1b-4f8b-b903-28e6cf7b8860",
 	0,
 	0);
 INSERT INTO O_TFR
@@ -131,7 +107,7 @@ end if;
 ',
 	1,
 	'',
-	"f0138969-611f-456f-8810-ac882a357505",
+	"e96b22b1-1d1b-4f8b-b903-28e6cf7b8860",
 	0,
 	0);
 INSERT INTO O_TPARM

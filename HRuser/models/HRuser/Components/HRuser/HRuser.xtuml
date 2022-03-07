@@ -42,12 +42,12 @@ INSERT INTO GD_SHP
 INSERT INTO GD_CTR
 	VALUES ("4bc918e6-cc52-4588-8a20-10fc9bd7026d");
 INSERT INTO DIM_ND
-	VALUES (1440.000000,
-	574.000000,
+	VALUES (5552.000000,
+	3686.000000,
 	"4bc918e6-cc52-4588-8a20-10fc9bd7026d");
 INSERT INTO DIM_GE
-	VALUES (4100.000000,
-	3100.000000,
+	VALUES (-12.000000,
+	-12.000000,
 	"4bc918e6-cc52-4588-8a20-10fc9bd7026d",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -181,6 +181,30 @@ INSERT INTO DIM_GE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
 	VALUES ("372227f6-3a21-4a41-8a64-c3c0d56b81a6",
+	0,
+	"4bc918e6-cc52-4588-8a20-10fc9bd7026d");
+INSERT INTO GD_GE
+	VALUES ("658929ee-1fd7-4874-b611-987f95174c70",
+	"0091422b-4eaf-4717-a67e-137f8c900abe",
+	"d7dd26d0-a277-469b-8b85-458d3cd2e6d2",
+	108,
+	0,
+	'HRuser::Components::HRuser::ClientDataRef');
+INSERT INTO GD_SHP
+	VALUES ("658929ee-1fd7-4874-b611-987f95174c70");
+INSERT INTO GD_NCS
+	VALUES ("658929ee-1fd7-4874-b611-987f95174c70");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"658929ee-1fd7-4874-b611-987f95174c70");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"658929ee-1fd7-4874-b611-987f95174c70",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("658929ee-1fd7-4874-b611-987f95174c70",
 	0,
 	"4bc918e6-cc52-4588-8a20-10fc9bd7026d");
 INSERT INTO DIM_DIA
@@ -353,27 +377,6 @@ Not used for preliminary Use Cases.
 	0,
 	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("ba276dc5-13aa-4ff8-b8bc-da7d357538f2",
-	"8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"b9266a99-419d-4977-a5b3-f0a7f6342582");
-INSERT INTO SPR_RS
-	VALUES ("ba276dc5-13aa-4ff8-b8bc-da7d357538f2",
-	'PayrollData',
-	'Data for single payroll payment element for an employee in a department.',
-	'::PayrollData( EmployeeID:param.EmployeeID, PaymentLabel:param.PaymentLabel, 
-  PaymentAmount:param.PaymentAmount, HoldStatus:param.HoldStatus, UnapprovalStatus:param.UnapprovalStatus );',
-	1,
-	0,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	-1,
-	'PayrollData',
-	'Data for single payroll payment element for an employee in a department.',
-	0,
-	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("e55209bc-e746-4d22-9547-b4c78d08233e",
 	"0f25438a-f717-4b80-b06c-9ce0f1c905c4",
 	"b9266a99-419d-4977-a5b3-f0a7f6342582");
@@ -434,30 +437,6 @@ INSERT INTO C_EP_PROXY
 	0,
 	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("93126707-c668-4bbd-bf82-009a4d5e22cb",
-	"dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"b9266a99-419d-4977-a5b3-f0a7f6342582");
-INSERT INTO SPR_RS
-	VALUES ("93126707-c668-4bbd-bf82-009a4d5e22cb",
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	'',
-	1,
-	0,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	-1,
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	0,
-	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("a8369463-92b9-4e97-a929-16d73d212fdf",
 	"79e0cec4-ae5c-4386-bba6-8e0cbd7b5655",
 	"b9266a99-419d-4977-a5b3-f0a7f6342582");
@@ -508,7 +487,8 @@ INSERT INTO SPR_RS
 	'::PayeeData( Department:param.Department, 
   EmployeeID:param.EmployeeID, 
   EmployeeFirstName:param.EmployeeFirstName, 
-  EmployeeLastName:param.EmployeeLastName );',
+  EmployeeLastName:param.EmployeeLastName, 
+  Payments:param.Payments );',
 	1,
 	0,
 	0);

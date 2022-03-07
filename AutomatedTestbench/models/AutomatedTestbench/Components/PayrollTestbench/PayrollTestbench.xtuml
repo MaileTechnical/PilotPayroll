@@ -42,7 +42,7 @@ INSERT INTO GD_SHP
 INSERT INTO GD_CTR
 	VALUES ("caef5cbb-63c6-4f65-856f-9e3a88731b95");
 INSERT INTO DIM_ND
-	VALUES (5526.000000,
+	VALUES (5746.000000,
 	3399.000000,
 	"caef5cbb-63c6-4f65-856f-9e3a88731b95");
 INSERT INTO DIM_GE
@@ -56,7 +56,7 @@ INSERT INTO DIM_ELE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_CON
 	VALUES ("fb2b5db9-50e6-41f1-ad18-d6b305f80092",
-	5514.000000,
+	5734.000000,
 	3258.000000,
 	"caef5cbb-63c6-4f65-856f-9e3a88731b95");
 INSERT INTO DIM_CON
@@ -133,7 +133,7 @@ INSERT INTO DIM_ND
 	0.000000,
 	"4c000288-a166-4ccd-b254-c646c418c6b0");
 INSERT INTO DIM_GE
-	VALUES (5501.000000,
+	VALUES (5721.000000,
 	3218.000000,
 	"4c000288-a166-4ccd-b254-c646c418c6b0",
 	"00000000-0000-0000-0000-000000000000");
@@ -168,14 +168,14 @@ INSERT INTO GD_LS
 	"699f5cfc-308d-4c91-a81c-1f58e00e3c73");
 INSERT INTO DIM_WAY
 	VALUES ("15030ee1-6e09-4895-a6e7-56f0f897a920",
-	5514.000000,
+	5734.000000,
 	3258.000000,
 	"4711e771-61bf-4948-b050-6107abe5d10b",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("699f5cfc-308d-4c91-a81c-1f58e00e3c73",
-	5589.000000,
+	5809.000000,
 	3258.000000,
 	"4711e771-61bf-4948-b050-6107abe5d10b",
 	"00000000-0000-0000-0000-000000000000",
@@ -418,30 +418,6 @@ INSERT INTO DIM_ED
 	"00000000-0000-0000-0000-000000000000",
 	"e23753c6-6ce0-4a20-9c4f-0a3c624448c0");
 INSERT INTO GD_GE
-	VALUES ("725383dd-72be-438c-b6ed-b6ebb2e9783b",
-	"f81cf3a2-2229-4a68-bd4a-d44912aca8f1",
-	"634e393b-0577-4a4c-ba7f-51cdf46d88fa",
-	108,
-	0,
-	'AutomatedTestbench::Components::PayrollTestbench::TestFunctions');
-INSERT INTO GD_SHP
-	VALUES ("725383dd-72be-438c-b6ed-b6ebb2e9783b");
-INSERT INTO GD_NCS
-	VALUES ("725383dd-72be-438c-b6ed-b6ebb2e9783b");
-INSERT INTO DIM_ND
-	VALUES (200.000000,
-	150.000000,
-	"725383dd-72be-438c-b6ed-b6ebb2e9783b");
-INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
-	"725383dd-72be-438c-b6ed-b6ebb2e9783b",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("725383dd-72be-438c-b6ed-b6ebb2e9783b",
-	0,
-	"caef5cbb-63c6-4f65-856f-9e3a88731b95");
-INSERT INTO GD_GE
 	VALUES ("a6158053-ba91-4498-858e-f3d46bd3979b",
 	"f81cf3a2-2229-4a68-bd4a-d44912aca8f1",
 	"41578d57-ceee-4604-8cd6-c0b3916e243e",
@@ -511,6 +487,54 @@ INSERT INTO DIM_GE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
 	VALUES ("56647663-5b64-4bd9-9798-332767a53064",
+	0,
+	"caef5cbb-63c6-4f65-856f-9e3a88731b95");
+INSERT INTO GD_GE
+	VALUES ("725383dd-72be-438c-b6ed-b6ebb2e9783b",
+	"f81cf3a2-2229-4a68-bd4a-d44912aca8f1",
+	"634e393b-0577-4a4c-ba7f-51cdf46d88fa",
+	108,
+	0,
+	'AutomatedTestbench::Components::PayrollTestbench::TestFunctions');
+INSERT INTO GD_SHP
+	VALUES ("725383dd-72be-438c-b6ed-b6ebb2e9783b");
+INSERT INTO GD_NCS
+	VALUES ("725383dd-72be-438c-b6ed-b6ebb2e9783b");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"725383dd-72be-438c-b6ed-b6ebb2e9783b");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"725383dd-72be-438c-b6ed-b6ebb2e9783b",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("725383dd-72be-438c-b6ed-b6ebb2e9783b",
+	0,
+	"caef5cbb-63c6-4f65-856f-9e3a88731b95");
+INSERT INTO GD_GE
+	VALUES ("e19763fc-22ad-451d-b0bf-1868f0e65ec9",
+	"f81cf3a2-2229-4a68-bd4a-d44912aca8f1",
+	"bce60de5-26d0-4a66-82af-080f879bc4b1",
+	108,
+	0,
+	'AutomatedTestbench::Components::PayrollTestbench::ClientDataRef');
+INSERT INTO GD_SHP
+	VALUES ("e19763fc-22ad-451d-b0bf-1868f0e65ec9");
+INSERT INTO GD_NCS
+	VALUES ("e19763fc-22ad-451d-b0bf-1868f0e65ec9");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"e19763fc-22ad-451d-b0bf-1868f0e65ec9");
+INSERT INTO DIM_GE
+	VALUES (5522.000000,
+	3225.000000,
+	"e19763fc-22ad-451d-b0bf-1868f0e65ec9",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("e19763fc-22ad-451d-b0bf-1868f0e65ec9",
 	0,
 	"caef5cbb-63c6-4f65-856f-9e3a88731b95");
 INSERT INTO DIM_DIA
@@ -1232,12 +1256,14 @@ LOG::LogInfo( message:" ------------------------------ ");
 // Clean up anything possibly left by a previous failed test case - and warn!
 select many payees from instances of Payee;
 for each payee in payees
-  select many elements related by payee->PayrollElement[R90.''aggregates''];
-  for each element in elements
-  	LOG::LogInfo( message:"deleting an element" );
-  	LOG::LogInteger( message:element.Amount );
-  	unrelate element from payee across R90.''contributes to'';
-  	delete object instance element;
+  select many payments related by payee->Payment[R90.''aggregates''];
+  for each payment in payments
+  	LOG::LogInfo( message:"deleting a payment" );
+  	LOG::LogInteger( message:payment.amount );
+  	select one update related by payment ->Updates[R90];
+  	unrelate payment from payee across R90.''contributes to'' using update;
+  	delete object instance payment;
+  	delete object instance update;
   end for;
   select one dept related by payee->Department[R80.''belongs to''];
   unrelate payee from dept across R80.''belongs to'';
@@ -1504,40 +1530,6 @@ Not used for preliminary Use Cases.
 	0,
 	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("b4f90f2f-7db5-4003-92c1-5bb08c931a35",
-	"8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"1537511c-fd0a-4f97-a1ab-fd6b6a3ce9c7");
-INSERT INTO SPR_RS
-	VALUES ("b4f90f2f-7db5-4003-92c1-5bb08c931a35",
-	'PayrollData',
-	'Data for single payroll payment element for an employee in a department.',
-	'select any payee from instances of Payee
- where ( selected.EmployeeID == param.EmployeeID );
-if ( not_empty payee )
-  create object instance entry of PayrollElement;
-  entry.Label = param.PaymentLabel;
-  entry.Amount = param.PaymentAmount;
-  entry.Hold = param.HoldStatus; 
-  entry.Unapproved = param.UnapprovalStatus;
-  entry.HoldUpdated = False;
-  entry.ApproveUpdated = False;
-  entry.AmountUpdated = False;
-  relate entry to payee across R90.''contributes to'';
-else
-  LOG::LogInfo( message:"Cannot find employee " );
-end if;',
-	1,
-	0,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("8c9de5fe-1015-4d0e-bc74-0aa939a8f275",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	-1,
-	'PayrollData',
-	'Data for single payroll payment element for an employee in a department.',
-	0,
-	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("0c2fddcc-17f0-43ca-ac28-4a50c8294c82",
 	"0f25438a-f717-4b80-b06c-9ce0f1c905c4",
 	"1537511c-fd0a-4f97-a1ab-fd6b6a3ce9c7");
@@ -1604,30 +1596,6 @@ INSERT INTO C_EP_PROXY
 	0,
 	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("5d56f9bf-4a46-4873-a33a-8d16ffd893b7",
-	"dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"1537511c-fd0a-4f97-a1ab-fd6b6a3ce9c7");
-INSERT INTO SPR_RS
-	VALUES ("5d56f9bf-4a46-4873-a33a-8d16ffd893b7",
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	'',
-	1,
-	0,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("dce7039f-aa29-4ba4-af47-7258d8fb7941",
-	"cbed0e18-6775-4be9-b1f9-61714edc73e6",
-	-1,
-	'Accepted',
-	'Signal acceptance from Finance of a department payroll submitted for payment.
-Not used for preliminary Use Cases.
-',
-	0,
-	'../../../../../PilotPayroll/models/PilotPayroll/Interfaces/HumanResources/HumanResources.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("7e160586-e91d-4df7-ab67-291d123d6e83",
 	"79e0cec4-ae5c-4386-bba6-8e0cbd7b5655",
 	"1537511c-fd0a-4f97-a1ab-fd6b6a3ce9c7");
@@ -1645,20 +1613,14 @@ if ( param.Ident == "available" )
   send TESTSEQ::Assess( key:"DepartmentsSent" );
 end if;
 
-if ( param.Ident == "employees" )
+if ( param.Ident == "payroll" )
   select many payees from instances of Payee;
   if ( cardinality payees != param.Count )
     LOG::LogFailure( message:"Bad count of employees sent" );
   end if;
-end if;
-
-if ( param.Ident == "payroll" )
-  select many elements from instances of PayrollElement;
-  if ( cardinality elements != param.Count )
-    LOG::LogFailure( message:"Bad count of pay elements sent" );
-  end if;
   send TESTSEQ::Assess( key:"PayrollAvailable" );
-end if;',
+end if;
+',
 	1,
 	0,
 	0);
@@ -1703,7 +1665,17 @@ payee.EmployeeID = param.EmployeeID;
 select any dept from instances of Department
  where ( selected.Name == param.Department );
 relate payee to dept across R80.''belongs to'';
-dept.Reviewing = True;',
+dept.Reviewing = True;
+
+payments = param.Payments;
+for each payment in payments
+  create object instance update of Updates;
+  update.HoldUpdated = False;
+  update.ApproveUpdated = False;
+  update.AmountUpdated = False;
+  relate payment to payee across R90.''contributes to'' using update;
+end for;
+',
 	1,
 	0,
 	0);

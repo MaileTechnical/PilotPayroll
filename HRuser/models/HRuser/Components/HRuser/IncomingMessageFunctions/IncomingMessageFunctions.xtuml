@@ -238,6 +238,22 @@ INSERT INTO S_SPARM
 	'',
 	"826d00af-df4c-42c4-a767-ba50b11293fe",
 	'');
+INSERT INTO S_SPARM
+	VALUES ("82666864-bd05-4af9-b0b0-14711da72a21",
+	"09e03852-8783-4eae-882c-95fd5656611a",
+	'Payments',
+	"13bc6c62-8e3a-449f-9331-1c2f222ec058",
+	0,
+	'',
+	"6aa36af3-9c40-4ca4-ab06-1bee1f2116d7",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("13bc6c62-8e3a-449f-9331-1c2f222ec058",
+	"00000000-0000-0000-0000-000000000000",
+	'inst_ref_set<Payment>',
+	'',
+	'',
+	'../../../../../../PilotPayroll/models/PilotPayroll/ClientData/ClientData.xtuml');
 INSERT INTO PE_PE
 	VALUES ("09e03852-8783-4eae-882c-95fd5656611a",
 	1,

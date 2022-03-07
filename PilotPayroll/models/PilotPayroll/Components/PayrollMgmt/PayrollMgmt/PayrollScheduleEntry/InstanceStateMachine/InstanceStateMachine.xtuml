@@ -270,7 +270,7 @@ send USER::Notification( Ident:"imminent", Content:dept.Name );
 
 // Ask monitor to trigger at Draft payroll generation date & time
 create event instance advance of PayrollScheduleEntry2:Activate() to self;
-monitor = self.MyMonitor;	// workaround for parser flaw
+monitor = self.myMonitor;
 monitor.Start( ClientEvent:advance, DateTime:self.DraftGenerationDate );
 ',
 	'',
@@ -295,7 +295,7 @@ select one payperiod related by self->PayPeriod[R32.''schedules for''];
 unrelate payperiod from self across R32.''specifies dates for'';
 
 // Done with this timer
-monitor = self.MyMonitor;  // for parser glitch
+monitor = self.myMonitor;  // for parser glitch
 monitor.Delete();
 
 delete object instance self;',
@@ -336,10 +336,8 @@ generate Payroll1:Generate() to payroll;
 
 // Set monitor to trigger warning event if submission date is missed
 create event instance warn of PayrollScheduleEntry4:Timeout to self;
-monitor = self.MyMonitor;	// workaround for parser flaw
-monitor.Start( ClientEvent:warn, DateTime:self.SubmittalDueDate );
-
-',
+monitor = self.myMonitor;
+monitor.Start( ClientEvent:warn, DateTime:self.SubmittalDueDate );',
 	'',
 	0);
 INSERT INTO SM_TAH

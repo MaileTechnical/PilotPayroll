@@ -116,43 +116,53 @@ if ( empty payee )
   obs.Complete( success:false );
   return;
 end if;
-select any entry related by payee->PayrollElement[R90.''aggregates'']
- where ( selected.Label == self.label );
-if ( not_empty entry )
+select any payment related by payee->Payment[R90.''aggregates'']
+ where ( selected.label == self.label );
+if ( not_empty payment )
+  select one update related by payment->Updates[R90];
   LOG::LogInfo( message:"Reviewing payroll entry with action " + self.action + " for " + self.label );
   if ( self.action == "hold" ) 
-    if ( entry.Hold == False )
-  	  entry.Hold = True;
-  	  entry.HoldUpdated = True;
+    if ( payment.onhold == False )
+  	  payment.onhold = True;
+  	  update.HoldUpdated = True;
     end if;
     success = True;
   end if;
   if ( self.action == "clear" ) 
-    if ( entry.Hold );
-  	  entry.Hold = False;
-      entry.HoldUpdated = True;
+    if ( payment.onhold );
+  	  payment.onhold = False;
+  	  update.HoldUpdated = True;
     end if;
     success = True;
   end if;
   if ( self.action == "approve" );
-    if ( entry.Unapproved )
-      entry.Unapproved = False;
-      entry.ApproveUpdated = True;
+    if ( payment.unapproved )
+      payment.unapproved = False;
+      update.ApproveUpdated = True;
     end if;
     success = True;
   end if;
-  if ( self.action == "checkhold" ) and ( entry.Hold == True );
+  if ( self.action == "checkhold" ) and ( payment.onhold == True );
     success = True;
   end if;
-  if ( self.action == "checkclear" ) and ( entry.Hold == False );
+  if ( self.action == "checkclear" ) and ( payment.onhold == False );
     success = True;
   end if;
-  if ( self.action == "checkunapproval" ) and ( entry.Unapproved == True );
+  if ( self.action == "checkunapproval" ) and ( payment.unapproved == True );
     success = True;
   end if;
 end if;
 if ( success )
   LOG::LogSuccess( message:"Reviewed payroll entry with action " + self.action );
+else
+  LOG::LogInfo( message:"Review failed for: " + self.label );
+  LOG::LogInteger( message:payee.EmployeeID );
+  if ( payment.onhold )
+  	LOG::LogInfo( message:"held" );
+  end if;
+  if ( payment.unapproved )
+  	LOG::LogInfo( message:"unapproved" );
+  end if;
 end if;
 obs.Complete( success:success );
 ',

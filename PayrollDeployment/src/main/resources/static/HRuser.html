@@ -19,6 +19,7 @@
                     <label for="connect">WebSocket connection:</label>
                     <button id="connect" class="btn btn-default" type="submit">Connect</button>
                     <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect</button>
+                    <button id="msgdisplay" class="btn btn-default" type="submit">Toggle Message Display</button>
                 </div>
             </form>
         </div>
@@ -79,7 +80,7 @@
             </table>
         </div>
     </div>
-    <div class="row">
+    <div v-show="ShowMsgs" class="row">
         <div class="col-md-12">
             <table id="conversation" class="table table-striped">
                 <thead>

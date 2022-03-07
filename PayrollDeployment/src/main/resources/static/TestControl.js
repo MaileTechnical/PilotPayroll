@@ -19,13 +19,13 @@ function setConnected(connected) {
 // When connecting, subscribe to a topic to receive
 // messages sent from the server.
 function connect() {
-    var socket = new SockJS('/PilotPayroll-websocket');
+    var socket = new SockJS('/TimeWarp-websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/TestControl', function (reply) {
-            showReply(JSON.parse(reply.body).content);
+            showReply(message);
         });
     });
 }
