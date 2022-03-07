@@ -33,7 +33,6 @@ The built-in external entities provided by BridgePoint 7 (or later) can be added
 1. Add the built-in external entities provided by BridgePoint 7 or later.
 2. Import the following projects from this repository:
  - Payroll
- - HRuser
  - TestControl
 3. Build with pom-clients.xml.
 4. Execute (bash) run-clients-servlet.sh.

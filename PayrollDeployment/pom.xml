@@ -64,11 +64,6 @@
     </dependency>
     <dependency>
       <groupId>org.xtuml</groupId>
-      <artifactId>HRuser</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.xtuml</groupId>
       <artifactId>TestControl</artifactId>
       <version>1.0.0-SNAPSHOT</version>
     </dependency>
