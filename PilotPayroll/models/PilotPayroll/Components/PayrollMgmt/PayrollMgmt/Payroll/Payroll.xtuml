@@ -75,7 +75,7 @@ else
 end if;',
 	1,
 	'',
-	"2c9eb5ac-e7ea-4426-b9e6-013bcb269166",
+	"981130e4-c519-401b-bfc7-adc66dd86d45",
 	0,
 	0);
 INSERT INTO O_TFR
@@ -240,6 +240,26 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'If true, only send items that have on-hold status.');
+INSERT INTO O_TFR
+	VALUES ("981130e4-c519-401b-bfc7-adc66dd86d45",
+	"082d7012-4ccd-4f69-8aac-c0d1f9d5d21c",
+	'InitiateEvaluation',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'select many payments related by self->EmployeePayment[R7];
+for each payment in payments
+  relate payment to self across R104.''is evaluating for'';
+end for;
+for each payment in payments
+  generate EmployeePayment1:Evaluate() to payment;
+end for;
+',
+	1,
+	'',
+	"2c9eb5ac-e7ea-4426-b9e6-013bcb269166",
+	0,
+	1);
 INSERT INTO O_NBATTR
 	VALUES ("f91b8c26-ac41-4670-9727-93b0fa1d498e",
 	"082d7012-4ccd-4f69-8aac-c0d1f9d5d21c");
