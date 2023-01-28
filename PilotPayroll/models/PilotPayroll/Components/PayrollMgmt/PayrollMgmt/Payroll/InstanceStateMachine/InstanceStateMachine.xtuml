@@ -867,7 +867,7 @@ INSERT INTO SM_ACT
 	VALUES ("bd408fc3-81f3-45f4-9923-6f8410f8da32",
 	"cd4b8730-3d31-42cc-b2a2-c0b6313563f3",
 	1,
-	'// Placeholder: This cannot happen until integrated with a Finance component.',
+	'// Placeholder: This cannot happen without a more realistic representation of a Finance component.',
 	'',
 	0);
 INSERT INTO SM_TAH

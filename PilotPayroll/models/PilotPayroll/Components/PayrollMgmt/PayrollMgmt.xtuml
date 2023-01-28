@@ -571,7 +571,6 @@ INSERT INTO SPR_RS
 	'AcceptPayroll',
 	'',
 	'LOG::LogInfo( message:"Payroll Accepted by Finance Port Activity for: " + param.Department );
-LOG::LogInteger( message:param.PayPeriodStart );
 select any dept from instances of Department
  where ( selected.Name == param.Department );
 select one payroll related by dept->Payroll[R34.''has under review''];
