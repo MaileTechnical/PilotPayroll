@@ -244,10 +244,17 @@ INSERT INTO O_TFR
 	VALUES ("981130e4-c519-401b-bfc7-adc66dd86d45",
 	"082d7012-4ccd-4f69-8aac-c0d1f9d5d21c",
 	'InitiateEvaluation',
-	'',
+	'Employee payment computations, with pro-rating, dependencies and summing, are independent of one another, which
+presents a natural degree of concurrency in this application.
+If an architecture which allows state machines to run concurrently is postulated, then mapping these activities 
+to state machines would allow that concurrency to be realized.',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
-	'select many payments related by self->EmployeePayment[R7];
+	'// The following is done in two distinct steps to ensure that all the relationships
+// have been established before any action which unrelates them can execute.
+// Otherwise, it is conceivable that a state action may complete and erroneously 
+// signal completion of all evaluations while there are relationships yet to be established.
+select many payments related by self->EmployeePayment[R7];
 for each payment in payments
   relate payment to self across R104.''is evaluating for'';
 end for;

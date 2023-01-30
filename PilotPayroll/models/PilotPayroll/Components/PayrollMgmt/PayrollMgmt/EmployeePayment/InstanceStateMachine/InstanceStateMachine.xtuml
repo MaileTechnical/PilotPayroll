@@ -61,7 +61,11 @@ INSERT INTO SM_ACT
 	VALUES ("adbce118-17eb-41df-8649-ee0f30ff2c82",
 	"b88da18c-920e-4fbc-8da8-97714cf5e514",
 	1,
-	'self.EvaluatePaymentElements();
+	'// Each payment is independently computed, summing its contributions.
+// When complete, it disassociates from the Payroll instance that
+// triggered the computation. When no payment evaluations are outstanding, 
+// then completion of Payroll generation is signalled.
+self.EvaluatePaymentElements();
 self.CalculateTotalPayment();
 select one payroll related by self->Payroll[R104.''is evaluating for''];
 unrelate self from payroll across R104.''is evaluating for'';
@@ -117,7 +121,7 @@ INSERT INTO GD_NCS
 	VALUES ("d2c35094-0127-4c0f-9ba9-496710a6da89");
 INSERT INTO DIM_ND
 	VALUES (421.000000,
-	193.000000,
+	265.000000,
 	"d2c35094-0127-4c0f-9ba9-496710a6da89");
 INSERT INTO DIM_GE
 	VALUES (4548.000000,
