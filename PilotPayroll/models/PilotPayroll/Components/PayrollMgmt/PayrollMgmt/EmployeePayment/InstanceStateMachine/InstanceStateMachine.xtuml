@@ -5,7 +5,10 @@ INSERT INTO SM_ISM
 	"21b3f00e-5083-45c8-92be-24d44a0e0927");
 INSERT INTO SM_SM
 	VALUES ("b88da18c-920e-4fbc-8da8-97714cf5e514",
-	'',
+	'Employee payment computations, with pro-rating, dependencies and summing, are independent of one another, which
+presents a natural degree of concurrency in this application.
+xtUML state machines may run concurrently, so mapping these computations to state machines allows that 
+concurrency to be realized.',
 	0);
 INSERT INTO SM_MOORE
 	VALUES ("b88da18c-920e-4fbc-8da8-97714cf5e514");
